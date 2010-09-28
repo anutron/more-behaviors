@@ -2,7 +2,7 @@
 ---
 description: Creates instances of HtmlTable for any table with the css class .ccs-data_table with additional options for sortability and selectability.
 provides: [Behavior.HtmlTable]
-requires: [/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/HtmlTable.Tree]
+requires: [Behavior/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/HtmlTable.Tree]
 script: Behavior.HtmlTable.js
 ...
 */

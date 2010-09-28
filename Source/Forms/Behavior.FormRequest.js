@@ -2,7 +2,7 @@
 ---
 description: Makes form elements with a FormRequest data filter automatically update via Ajax.
 provides: [Behavior.FormRequest]
-requires: [/Behavior, More/Form.Request, /Element.Data]
+requires: [Behavior/Behavior, More/Form.Request, Behavior/Element.Data]
 script: Behavior.FormRequest.js
 ...
 */

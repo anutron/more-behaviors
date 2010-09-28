@@ -2,7 +2,7 @@
 ---
 description: Adds an instance of Form.Validator.Inline to any form with the class .form-validator.
 provides: [Behavior.FormValidator]
-requires: [/Behavior, More/Form.Validator.Inline]
+requires: [Behavior/Behavior, More/Form.Validator.Inline]
 script: Behavior.FormValidator.js
 
 ...
