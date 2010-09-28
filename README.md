@@ -1,3 +1,3 @@
-# MooTools A.R.T.
+# MooTools More Behaviors
 
-Vector-based drawing for widgets, icons, and all that stuff. Pre-alpha.
+Behavior Filters for the MooTools More Library
