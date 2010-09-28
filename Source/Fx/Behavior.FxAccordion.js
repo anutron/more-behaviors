@@ -9,8 +9,8 @@ script: Behavior.Accordion.js
 
 Behavior.addGlobalFilters({
 	Accordion: function(element, methods) {
-		var toggles = element.get('data', 'toggler-elements') || '.toggle';
-		var sections = element.get('data', 'section-elements') || '.target';
+		var toggles = element.getData('toggler-elements') || '.toggle';
+		var sections = element.getData('section-elements') || '.target';
 		var accordion = new Fx.Accordion(toggles, sections);
 		this.markForCleanup(element, function() {
 			accordion.detach();

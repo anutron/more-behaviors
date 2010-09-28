@@ -39,7 +39,7 @@ HtmlTable.defineParsers({
 	dataSortNumeric: {
 		match: /data-sort-numeric/,
 		convert: function() {
-			return this.getElement('[data-sort-numeric]').get('data', 'sort-numeric').toInt();
+			return this.getElement('[data-sort-numeric]').getData('sort-numeric').toInt();
 		},
 		number: true
 	},
@@ -47,7 +47,7 @@ HtmlTable.defineParsers({
 	dataSortString: {
 		match: /data-sort-string/,
 		convert: function() {
-			return this.getElement('[data-sort-string]').get('data', 'sort-string');
+			return this.getElement('[data-sort-string]').getData('sort-string');
 		},
 		number: false 
 	}

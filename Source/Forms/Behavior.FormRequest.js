@@ -11,15 +11,15 @@ Behavior.addGlobalFilters({
 
 	FormRequest: function(element, methods){
 		var updateElement,
-		    update = element.get('data', 'update');
+		    update = element.getData('update');
 		if (update == "parent") {
 			updateElement = element.getParent();
 		} else if (update =="self") {
 			updateElement = element;
-		} else if (element.get('data', 'update-by-id')){
-			updateElement = document.id(element.get('data', 'update-by-id'));
-		} else if (element.get('data', 'update-by-selector')){
-			updateElement = document.id(document.body).getElement(element.get('data', 'update-by-selector'));
+		} else if (element.getData('update-by-id')){
+			updateElement = document.id(element.getData('update-by-id'));
+		} else if (element.getData('update-by-selector')){
+			updateElement = document.id(document.body).getElement(element.getData('update-by-selector'));
 		}
 		//pass null for the update element argument; JFrame does our updating for us
 		var req = new Form.Request(element, updateElement || element, {
