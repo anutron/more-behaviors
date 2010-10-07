@@ -14,6 +14,9 @@ Behavior.addGlobalFilters({
 		var target = element.getData('sort-state');
 		if (target) target = element.getParent().getElement(target);
 		
+		var property = element.getData('sort-property');
+		var property_child = element.getData('sort-property-child');
+		
 		var scrollParent;
 		var sort = new Sortables(element, {
 			clone: true,
@@ -32,7 +35,10 @@ Behavior.addGlobalFilters({
 			},
 			onComplete: function(){
 				if (target) {
-					target.set(target.get('tag') == 'input' ? 'value' : 'html', sort.serialize());
+					target.set(target.get('tag') == 'input' ? 'value' : 'html', sort.serialize(function(item){
+						if (property_child) item = item.getElement(property_child);
+						return item.get(property || 'name') || item.get('value') || item.get('id');
+					}).join(','));
 				}
 				if (scrollParent) scrollParent.retrieve('behavior:scroller').detach();
 			}
