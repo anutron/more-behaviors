@@ -1,0 +1,47 @@
+<p> You can reorder the list below. When you do the sort order will be displayed in the box below </p>
+<style>
+	#wrapper {
+		width: 300px;
+		padding: 4px;
+		border: 1px solid #999;
+	}
+	#SortableExample {
+		height: 150px;
+		overflow: auto;
+		padding: 0;
+		margin: 0;
+	}
+	#SortableExample li { 
+		list-style: none;
+		margin: 2px !important;
+		padding: 2px !important;
+		background: #ccc !important;
+		cursor: pointer;
+	}
+	#order {
+		position: absolute;
+		top: 250px;
+	}
+</style>
+<p>You should be able to reorder the list by dragging. The new order displays below the list when you release an item. If you scroll the list down a bit it should still let you sort correctly. (Note that it won't scroll for you as you drag; that's not part of this test). Dragging an element that contains a radio that is selected to a new location should keep the radio selected when it's dropped.</p>
+
+<div id="wrapper">
+	<ul id="SortableExample" data-filters="Sortable" data-sort-state="#order">
+		<li id="1">First <input type="radio" name="foo" checked="true"/></li>
+		<li id="2">Second <input type="radio" name="foo"/></li>
+		<li id="3">Third <input type="radio" name="foo"/></li>
+		<li id="4">Fourth <input type="radio" name="foo"/></li>
+		<li id="5">Fifth <input type="radio" name="foo"/></li>
+		<li id="6">Sixth <input type="radio" name="foo"/></li>
+		<li id="7">Seventh <input type="radio" name="foo"/></li>
+		<li id="8">Eigth <input type="radio" name="foo"/></li>
+		<li id="9">Nineth <input type="radio" name="foo"/></li>
+		<li id="10">Tenth <input type="radio" name="foo"/></li>
+	</ul>
+	<div id="order"></div>
+</div>
+
+<script src="/depender/build?require=More-Behaviors/Behavior.Sortables"></script>
+<script>
+new Behavior().apply(document.body);
+</script>

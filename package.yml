@@ -14,5 +14,6 @@ sources:
   - "Source/Fx/Behavior.FxAccordion.js"
   - "Source/Forms/Behavior.FormRequest.js"
   - "Source/Forms/Behavior.FormValidator.js"
-  - "Source/Interface/Behavior.HtmlTable.js"
   - "Source/Forms/Behavior.OverText.js"
+  - "Source/Interface/Behavior.HtmlTable.js"
+  - "Source/Drag/Behavior.Sortables.js"
