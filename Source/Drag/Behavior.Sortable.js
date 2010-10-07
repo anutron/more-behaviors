@@ -43,6 +43,9 @@ Behavior.addGlobalFilters({
 				if (scrollParent) scrollParent.retrieve('behavior:scroller').detach();
 			}
 		});
+		this.markForCleanup(element, function(){
+			sort.detach();
+		});
 	}
 
 });
