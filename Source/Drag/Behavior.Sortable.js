@@ -21,7 +21,8 @@ Behavior.addGlobalFilters({
 		var sort = new Sortables(element, {
 			clone: true,
 			opacity: 0.6,
-			onStart: function(){
+			onStart: function(element, clone){
+				clone.addClass('clone');
 				var scroller,
 				    scrollElement = isScrollable(element) ? element : getScrollParent(element);
 				if (scrollElement && scrollElement != scrollParent) {
