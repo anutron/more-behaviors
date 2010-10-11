@@ -11,6 +11,9 @@ script: Behavior.HtmlTable.js
 Behavior.addGlobalFilters({
 
 	Sortable: function(element, methods){
+		var lists = element.getData('sort-lists');
+		if (lists) lists = element.getElements(lists);
+		else lists = element;
 		var target = element.getData('sort-state');
 		if (target) target = element.getParent().getElement(target);
 		
@@ -18,7 +21,7 @@ Behavior.addGlobalFilters({
 		var property_child = element.getData('sort-property-child');
 		
 		var scrollParent;
-		var sort = new Sortables(element, {
+		var sort = new Sortables(lists, {
 			clone: true,
 			opacity: 0.6,
 			onStart: function(element, clone){

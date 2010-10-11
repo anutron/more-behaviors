@@ -11,16 +11,15 @@
 		padding: 0;
 		margin: 0;
 	}
-	#SortableExample li { 
+	#SortableExample li, .example2 li { 
 		list-style: none;
 		margin: 2px !important;
 		padding: 2px !important;
 		background: #ccc !important;
 		cursor: pointer;
 	}
-	#order {
-		position: absolute;
-		top: 250px;
+	.example2 ul {
+		padding: 0;
 	}
 </style>
 <p>You should be able to reorder the list by dragging. The new order displays below the list when you release an item. If you scroll the list down a bit it should still let you sort correctly. Dragging an element that contains a radio that is selected to a new location should keep the radio selected when it's dropped. If you drag an element to the top or bottom of the list, it should scroll.</p>
@@ -39,6 +38,28 @@
 		<li id="10">Tenth <input type="radio" name="foo"/></li>
 	</ul>
 	<div id="order"></div>
+</div>
+
+<p>You should be able to reorder the list by dragging. The new order displays below the list. You should be able to move items from one list to another.</p>
+
+<div data-filters="Sortable" class="example2" data-sort-lists="ul"
+	data-sort-state=".order2">
+		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">
+				<li id="1" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">First</li>
+				<li id="2" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Second</li>
+				<li id="3" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Third</li>
+		</ul>
+		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">
+				<li id="4" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Four</li>
+				<li id="5" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Five</li>
+				<li id="6" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Six</li>
+		</ul>
+		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">
+				<li id="7" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Seven</li>
+				<li id="8" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Eight</li>
+				<li id="9" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Nine</li>
+		</ul>
+	<div class="order2" style="clear:both"></div>
 </div>
 
 <script src="/depender/build?require=More-Behaviors/Behavior.Sortable"></script>
