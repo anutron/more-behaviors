@@ -38,7 +38,8 @@ Behavior.addGlobalFilters({
 				if (target) {
 					target.set(target.get('tag') == 'input' ? 'value' : 'html', sort.serialize(function(item){
 						if (property_child) item = item.getElement(property_child);
-						return item.get(property || 'name') || item.get('value') || item.get('id');
+						var isInput = ['input', 'textarea', 'select'].contains(item.get('tag'));
+						return item.get(property || 'name') || isInput ? item.get('value') : item.get('id');
 					}).join(','));
 				}
 				if (scrollParent) scrollParent.retrieve('behavior:scroller').detach();
