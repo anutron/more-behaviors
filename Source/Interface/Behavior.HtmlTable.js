@@ -1,6 +1,6 @@
 /*
 ---
-description: Creates instances of HtmlTable for any table with the css class .ccs-data_table with additional options for sortability and selectability.
+description: Creates instances of HtmlTable for tables with the HtmlTable filter
 provides: [Behavior.HtmlTable]
 requires: [Behavior/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/HtmlTable.Tree, More/HtmlTable.Resize]
 script: Behavior.HtmlTable.js
@@ -29,8 +29,8 @@ Behavior.addGlobalFilters({
 			resize: element.getData('table-resize'),
 			build: element.hasClass('buildTree')
 		});
-		this.markForCleanup(table, function(){
-			table.keyboard.relinquish();
+		this.markForCleanup(element, function(){
+			if (table.keyboard) table.keyboard.relinquish();
 		});
 	}
 
