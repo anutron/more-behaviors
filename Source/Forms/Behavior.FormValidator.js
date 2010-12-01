@@ -19,14 +19,6 @@ Behavior.addGlobalFilters({
 				useTitles: true
 			});
 		}
-		//stupid monkey patch, for now. TODO(nutron)
-		validator.insertAdvice = function(advice, field){
-			//look for a .ccs-errors advice element that is a sibling of the field and inject errors there
-			var target = field.getParent().getElement('.ccs-errors');
-			if (target) target.adopt(advice);
-			//otherwise inject them as siblings.
-			else field.getParent().adopt(advice);
-		};
 		validator.setOptions({
 			onShow: function(input, advice, className) {
 				//scroll to errors within the jframe
