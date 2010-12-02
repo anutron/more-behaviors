@@ -8,7 +8,7 @@ script: Behavior.Accordion.js
 */
 
 Behavior.addGlobalFilters({
-	Accordion: function(element, methods) {
+	Accordion: function(element) {
 		var toggles = element.getData('toggler-elements') || '.toggle';
 		var sections = element.getData('section-elements') || '.target';
 		var accordion = new Fx.Accordion(toggles, sections);

@@ -10,7 +10,7 @@ script: Behavior.Resizable.js
 
 	Behavior.addGlobalFilters({
 
-		Resizable: function(element, methods){
+		Resizable: function(element){
 			var options = {};
 			if (element.getData('resize-handle')) options.handle = element.getElement(element.getData('resize-handle'));
 			if (element.getData('resize-modifiers')) options.modifiers = element.getJSONData('resize-modifiers');

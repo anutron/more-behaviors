@@ -9,7 +9,7 @@ script: Behavior.FormRequest.js
 
 Behavior.addGlobalFilters({
 
-	FormRequest: function(element, methods){
+	FormRequest: function(element){
 		var updateElement,
 		    update = element.getData('update');
 		if (update == "parent") {

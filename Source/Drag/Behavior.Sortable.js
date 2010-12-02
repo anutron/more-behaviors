@@ -10,7 +10,7 @@ script: Behavior.HtmlTable.js
 
 Behavior.addGlobalFilters({
 
-	Sortable: function(element, methods){
+	Sortable: function(element){
 		var lists = element.getData('sort-lists');
 		if (lists) lists = element.getElements(lists);
 		else lists = element;

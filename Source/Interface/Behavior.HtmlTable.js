@@ -9,7 +9,7 @@ script: Behavior.HtmlTable.js
 
 Behavior.addGlobalFilters({
 
-	HtmlTable: function(element, methods){
+	HtmlTable: function(element){
 		//make all data tables sortable
 		var firstSort;
 		element.getElements('thead th').each(function(th, i){
