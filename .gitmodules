@@ -1,6 +1,6 @@
 [submodule "Specs/mootools-more"]
 	path = Specs/mootools-more
-	url = git://github.com/mootools/mootools-more.git
+	url = git://github.com/cloudera/mootools-more.git
 [submodule "Specs/mootools-core"]
 	path = Specs/mootools-core
 	url = git://github.com/mootools/mootools-core.git
