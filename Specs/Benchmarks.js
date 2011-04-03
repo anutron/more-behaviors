@@ -87,6 +87,7 @@ Configuration.source = {
 			'mootools-more/Source/Class/Class.Binds',
 			'mootools-more/Source/Class/Class.Occlude',
 			'mootools-more/Source/Class/Class.Refactor',
+			'mootools-more/Source/Native/String.Extras',
 			'mootools-more/Source/Native/String.QueryString',
 			'mootools-more/Source/Element/Element.Delegation',
 			'mootools-more/Source/Element/Element.Measure',
