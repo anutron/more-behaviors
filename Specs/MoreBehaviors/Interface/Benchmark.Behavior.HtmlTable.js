@@ -41,7 +41,9 @@
 		{"id":31,"timezone":"America/New_York","name":"Washington, DC","geolat":38.8964,"geolong":-77.0447}
 	];
 
-	var header = '<table data-filters="HtmlTable" class="multiselect selectable sortable resizable" data-table-resize="table" cellpadding="0" cellspacing="0"><thead><tr><th>ID</th><th>TimeZone</th><th>Name</th><th>GEO Latitude</th><th>GEO Longitude</th></tr></thead><tbody>';
+	var header = function(cls){ 
+		return '<table data-filters="HtmlTable" class="' + cls + '" data-table-resize="table" cellpadding="0" cellspacing="0"><thead><tr><th>ID</th><th>TimeZone</th><th>Name</th><th>GEO Latitude</th><th>GEO Longitude</th></tr></thead><tbody>';
+	};
 	var str = function(i){
 		var val = data[i%data.length];
 		return '<tr><td>' + val.id + '</td><td>' + val.timezone + '</td><td>' + val.name + '</td><td>' + val.geolat + '</td><td>' + val.geolong + '</td></tr>';
@@ -54,8 +56,19 @@
 		});
 		return result;
 	};
-	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); multiselect sortable resizable', header + build(str, 400) + footer);
-	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); multiselect sortable resizable', header + build(str, 1000) + footer);
+
+	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); resizable', header('resizable') + build(str, 400) + footer);
+	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); resizable', header('resizable') + build(str, 1000) + footer);
+
+	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); sortable', header('sortable') + build(str, 400) + footer);
+	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); sortable', header('sortable') + build(str, 1000) + footer);
+
+	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); multiselect', header('multiselect') + build(str, 400) + footer);
+	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); multiselect', header('multiselect') + build(str, 1000) + footer);
+
+
+	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); multiselect sortable resizable', header('multiselect selectable sortable resizable') + build(str, 400) + footer);
+	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); multiselect sortable resizable', header('multiselect selectable sortable resizable') + build(str, 1000) + footer);
 
 	var treeTable = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect">';
 	var treeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
