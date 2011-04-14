@@ -51,6 +51,7 @@ Behavior.addGlobalFilters({
 		this.markForCleanup(element, function(){
 			sort.detach();
 		});
+		return sort;
 	}
 
 });

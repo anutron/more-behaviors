@@ -32,6 +32,7 @@ Behavior.addGlobalFilters({
 		this.markForCleanup(element, function(){
 			if (table.keyboard) table.keyboard.relinquish();
 		});
+		return table;
 	}
 
 });

@@ -15,6 +15,7 @@ Behavior.addGlobalFilters({
 		this.markForCleanup(element, function() {
 			accordion.detach();
 		});
+		return accordion;
 	}
 });
 

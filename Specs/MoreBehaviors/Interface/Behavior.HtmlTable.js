@@ -57,28 +57,143 @@
 		return result;
 	};
 
-	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); resizable', header('resizable') + build(str, 400) + footer);
-	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); resizable', header('resizable') + build(str, 1000) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (400 rows / 5 col); resizable',
+		content: header('resizable') + build(str, 400) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				expect(table._resizeEnabled).toBe(true);
+			}
+		]
+	});
 
-	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); sortable', header('sortable') + build(str, 400) + footer);
-	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); sortable', header('sortable') + build(str, 1000) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (1000 rows / 5 col); resizable',
+		content: header('resizable') + build(str, 1000) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
 
-	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); multiselect', header('multiselect') + build(str, 400) + footer);
-	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); multiselect', header('multiselect') + build(str, 1000) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (400 rows / 5 col); sortable',
+		content: header('sortable') + build(str, 400) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				expect(table.sortEnabled).toBe(true);
+			}
+		]
+	});
 
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (1000 rows / 5 col); sortable',
+		content: header('sortable') + build(str, 1000) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
 
-	MooBench.addBehaviorTest('HtmlTable (400 rows / 5 col); multiselect sortable resizable', header('multiselect selectable sortable resizable') + build(str, 400) + footer);
-	MooBench.addBehaviorTest('HtmlTable (1000 rows / 5 col); multiselect sortable resizable', header('multiselect selectable sortable resizable') + build(str, 1000) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (400 rows / 5 col); multiselect',
+		content: header('multiselect') + build(str, 400) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				table.selectAll();
+				expect(table.getSelected().length).toBe(400);
+			}
+		]
+	});
+
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (1000 rows / 5 col); multiselect',
+		content: header('multiselect') + build(str, 1000) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
+
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable',
+		content: header('multiselect sortable resizable') + build(str, 400) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				table.selectAll();
+				expect(table.getSelected().length).toBe(400);
+				expect(table.sortEnabled).toBe(true);
+				expect(table._resizeEnabled).toBe(true);
+			}
+		]
+	});
+
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable (1000 rows / 5 col); multiselect sortable resizable',
+		content: header('multiselect sortable resizable') + build(str, 1000) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
 
 	var treeTable = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect">';
 	var treeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
 	var treeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
 
-	MooBench.addBehaviorTest('HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD', treeTable + treeHead + build(treeRows, 20) + footer);
-	MooBench.addBehaviorTest('HtmlTable: Treeview (600 rows / 3 col); tree selectable NO BUILD', treeTable + treeHead + build(treeRows, 40) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD',
+		content: treeTable + treeHead + build(treeRows, 20) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				var first = element.getElement('tbody tr');
+				table.closeSection(first);
+				expect(table.isExpanded(first)).toBe(false);
+				table.expandSection(first);
+				expect(table.isExpanded(first)).toBe(true);
+				expect(table._treeBuilt).toBe(false);
+			}
+		]
+	});
+
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable NO BUILD',
+		content: treeTable + treeHead + build(treeRows, 20) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
 
 	var treeTableBuild = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect buildTree">';
-	MooBench.addBehaviorTest('HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD', treeTableBuild + treeHead + build(treeRows, 20) + footer);
-	MooBench.addBehaviorTest('HtmlTable: Treeview (600 rows / 3 col); tree selectable BUILD', treeTableBuild + treeHead + build(treeRows, 40) + footer);
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD',
+		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
+		returns: HtmlTable,
+		expectations: [
+			function(element, table){
+				var first = element.getElement('tbody tr');
+				table.closeSection(first);
+				expect(table.isExpanded(first)).toBe(false);
+				table.expandSection(first);
+				expect(table.isExpanded(first)).toBe(true);
+				expect(table._treeBuilt).toBe(true);
+			}
+		]
+	});
+
+	Behavior.addFilterTest({
+		filterName: 'HtmlTable',
+		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable BUILD',
+		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
+		returns: HtmlTable,
+		noSpecs: true
+	});
 
 })();

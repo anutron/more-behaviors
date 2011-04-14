@@ -20,6 +20,7 @@ script: Behavior.Resizable.js
 			this.markForCleanup(element, function(){
 				drag.detach();
 			});
+			return drag;
 		}
 
 	});

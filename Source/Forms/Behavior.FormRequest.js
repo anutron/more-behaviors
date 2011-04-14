@@ -32,6 +32,7 @@ Behavior.addGlobalFilters({
 		this.markForCleanup(element, function(){
 			req.detach();
 		});
+		return req;
 	}
 
 });
