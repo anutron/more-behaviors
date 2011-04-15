@@ -2,7 +2,7 @@
 ---
 name: Behavior.Resizable Tests
 description: n/a
-requires: [More-Behaviors/Behavior.Resizable]
+requires: [More-Behaviors/Behavior.Resizable, Behavior-Tests/Behavior.SpecsHelpers]
 provides: [Behavior.Resizable.Tests]
 ...
 */

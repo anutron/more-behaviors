@@ -2,7 +2,7 @@
 ---
 name: Behavior.Sortable Tests
 description: n/a
-requires: [More-Behaviors/Behavior.Sortable]
+requires: [More-Behaviors/Behavior.Sortable, Behavior-Tests/Behavior.SpecsHelpers]
 provides: [Behavior.Sortable.Tests]
 ...
 */

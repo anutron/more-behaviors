@@ -2,7 +2,7 @@
 ---
 name: Behavior.FormRequest Tests
 description: n/a
-requires: [More-Behaviors/Behavior.FormRequest.js]
+requires: [More-Behaviors/Behavior.FormRequest, Behavior-Tests/Behavior.SpecsHelpers]
 provides: [Behavior.FormRequest.Tests]
 ...
 */

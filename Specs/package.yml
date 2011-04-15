@@ -1,0 +1,18 @@
+name: "More-Behaviors-Tests"
+
+description: "Tests for the Behavior filters for MooTools More"
+
+license: "MIT License"
+
+copyright: "&copy; [Aaron Newton](http://clientcide.com)"
+
+authors: "[Aaron Newton](http://clientcide.com)"
+
+sources:
+  - "more-behaviors/Fx/Behavior.FxAccordion.js"
+  - "more-behaviors/Forms/Behavior.FormRequest.js"
+  - "more-behaviors/Forms/Behavior.FormValidator.js"
+  - "more-behaviors/Forms/Behavior.OverText.js"
+  - "more-behaviors/Interface/Behavior.HtmlTable.js"
+  - "more-behaviors/Drag/Behavior.Resizable.js"
+  - "more-behaviors/Drag/Behavior.Sortable.js"

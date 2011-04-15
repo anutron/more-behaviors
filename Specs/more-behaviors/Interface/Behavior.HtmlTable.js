@@ -1,3 +1,12 @@
+/*
+---
+name: Behavior.HtmlTable Tests
+description: n/a
+requires: [More-Behaviors/Behavior.HtmlTable, Behavior-Tests/Behavior.SpecsHelpers]
+provides: [Behavior.HtmlTable.Tests]
+...
+*/
+
 (function(){
 
 	var data = [

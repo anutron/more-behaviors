@@ -1,3 +1,11 @@
+/*
+---
+name: Behavior.FormValidator Tests
+description: n/a
+requires: [More-Behaviors/Behavior.FormValidator, Behavior-Tests/Behavior.SpecsHelpers]
+provides: [Behavior.FormValidator.Tests]
+...
+*/
 (function(){
 
 	var str = '<form data-filters="FormValidator"></form>';
