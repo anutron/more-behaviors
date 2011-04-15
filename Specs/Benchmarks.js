@@ -11,18 +11,18 @@ Configuration.name = 'More Behaviors';
 // Presets - combine the sets and the source to a preset to easily run a test
 Configuration.presets = {
 	
-	'MoreBehaviors': {
-		sets: ['MoreBehaviors'],
-		source: ['MoreBehaviors']
+	'more-behaviors': {
+		sets: ['more-behaviors'],
+		source: ['more-behaviors']
 	}
 	
 };
 
 // An object with default presets
 Configuration.defaultPresets = {
-	browser: 'MoreBehaviors',
-	nodejs: 'MoreBehaviors',
-	jstd: 'MoreBehaviors'
+	browser: 'more-behaviors',
+	nodejs: 'more-behaviors',
+	jstd: 'more-behaviors'
 };
 
 
@@ -33,8 +33,8 @@ Configuration.defaultPresets = {
  */
 Configuration.sets = {
 
-	'MoreBehaviors': {
-		path: 'MoreBehaviors/',
+	'more-behaviors': {
+		path: 'more-behaviors/',
 		files: [
 			'../behavior/Specs/Behavior/Behavior.SpecsHelpers',
 			'Drag/Behavior.Resizable',
@@ -57,7 +57,7 @@ Configuration.sets = {
 
 Configuration.source = {
 
-	'MoreBehaviors': {
+	'more-behaviors': {
 		path: '',
 		files: [
 			'mootools-core/Source/Core/Core',
