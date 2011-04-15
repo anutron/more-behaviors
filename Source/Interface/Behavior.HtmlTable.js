@@ -32,6 +32,14 @@ Behavior.addGlobalFilters({
 		this.markForCleanup(element, function(){
 			if (table.keyboard) table.keyboard.relinquish();
 		});
+		// Hack to make tables not jump around in Chrome.
+		if (Browser.Engine.webkit) {
+			var width = element.style.width;
+			element.setStyle('width', '99%');
+			(function() {
+				element.style.width = width;
+			}).delay(1);
+		}
 		return table;
 	}
 

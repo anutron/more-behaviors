@@ -40,6 +40,7 @@ Configuration.sets = {
 			'Drag/Behavior.Resizable',
 			'Drag/Behavior.Sortable',
 			'Forms/Behavior.FormRequest',
+			'Forms/Behavior.FormValidator',
 			'Forms/Behavior.OverText',
 			'Fx/Behavior.FxAccordion',
 			'Interface/Behavior.HtmlTable'
@@ -88,6 +89,7 @@ Configuration.source = {
 			'mootools-more/Source/Class/Events.Pseudos',
 			'mootools-more/Source/Class/Class.Occlude',
 			'mootools-more/Source/Class/Class.Refactor',
+			'mootools-more/Source/Types/Object.Extras',
 			'mootools-more/Source/Types/String.Extras',
 			'mootools-more/Source/Types/String.QueryString',
 			'mootools-more/Source/Element/Element.Event.Pseudos',
@@ -98,7 +100,11 @@ Configuration.source = {
 			'mootools-more/Source/Element/Element.Shortcuts',
 			'mootools-more/Source/Fx/Fx.Elements',
 			'mootools-more/Source/Fx/Fx.Accordion',
+			'mootools-more/Source/Locale/Locale',
+			'mootools-more/Source/Locale/Locale.en-US.Form.Validator',
 			'mootools-more/Source/Forms/Form.Request',
+			'mootools-more/Source/Forms/Form.Validator',
+			'mootools-more/Source/Forms/Form.Validator.Inline',
 			'mootools-more/Source/Forms/OverText',
 			'mootools-more/Source/Forms/Spinner',
 			'mootools-more/Source/Drag/Drag',
@@ -118,6 +124,7 @@ Configuration.source = {
 			'../Source/Drag/Behavior.Sortable',
 			'../Source/Forms/Behavior.OverText',
 			'../Source/Forms/Behavior.FormRequest',
+			'../Source/Forms/Behavior.FormValidator',
 			'../Source/Fx/Behavior.FxAccordion',
 			'../Source/Interface/Behavior.HtmlTable'
 		]

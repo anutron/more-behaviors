@@ -11,7 +11,7 @@ script: Behavior.FormValidator.js
 Behavior.addGlobalFilters({
 
 	//validates any form with the .form-validator class
-	FormValidator: function(element) {
+	FormValidator: function(element, api) {
 		//instantiate the form validator
 		var validator = element.retrieve('validator');
 		if (!validator) {
@@ -19,15 +19,17 @@ Behavior.addGlobalFilters({
 				useTitles: true
 			});
 		}
-		validator.setOptions({
-			onShow: function(input, advice, className) {
-				//scroll to errors within the jframe
-				/*JFrame Reference */
-				this.jframe.scroller.toElement(input);
-			}.bind(this),
-			//not the window
-			scrollToErrorsOnSubmit: false
-		});
+		//if the api provides a getScroller method, which should return an instance of
+		//Fx.Scroll, use it instead
+		if (api.getScroller) {
+			validator.setOptions({
+				onShow: function(input, advice, className) {
+					api.getScroller().toElement(input);
+				},
+				scrollToErrorsOnSubmit: false
+			});
+		}
+		return validator;
 	}
 
 });

@@ -9,7 +9,7 @@ script: Behavior.FormRequest.js
 
 Behavior.addGlobalFilters({
 
-	FormRequest: function(element, behaviorAPI){
+	FormRequest: function(element, api){
 		var updateElement,
 		    update = element.getData('update');
 		if (update == "parent") {
@@ -19,10 +19,10 @@ Behavior.addGlobalFilters({
 		} else if (element.getData('update-by-id')){
 			updateElement = document.id(element.getData('update-by-id'));
 		} else if (element.getData('update-by-selector')){
-			updateElement = document.id(behaviorAPI.getContentElement()).getElement(element.getData('update-by-selector'));
+			updateElement = document.id(api.getContentElement()).getElement(element.getData('update-by-selector'));
 		}
 		//pass null for the update element argument; JFrame does our updating for us
-		var req = new Form.Request(element, updateElement || behaviorAPI.getContentElement(), {
+		var req = new Form.Request(element, updateElement || api.getContentElement(), {
 			requestOptions: {
 				filter: element.getData('update-filter'),
 				spinnerTarget: updateElement

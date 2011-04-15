@@ -9,7 +9,7 @@
 	});
 	Behavior.addFilterTest({
 		filterName: 'FormRequest',
-		desc: 'Creates an instance of FormRequest (by selector)',
+		desc: 'Creates an instance of FormRequest (by selector) (10x)',
 		content: str,
 		returns: Form.Request,
 		multiplier: 10,
