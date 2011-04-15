@@ -1,3 +1,11 @@
+/*
+---
+name: Behavior.FormRequest Tests
+description: n/a
+requires: [More-Behaviors/Behavior.FormRequest.js]
+provides: [Behavior.FormRequest.Tests]
+...
+*/
 (function(){
 
 	var str = '<form data-filters="FormRequest" data-update-by-selector=".formRequestTest"></form><div id="formRequestTest"></div>';

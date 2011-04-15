@@ -1,3 +1,12 @@
+/*
+---
+name: Behavior.Sortable Tests
+description: n/a
+requires: [More-Behaviors/Behavior.Sortable]
+provides: [Behavior.Sortable.Tests]
+...
+*/
+
 (function(){
 
 	var str = '<ul id="SortableExample" data-filters="Sortable" data-sort-state="#order"><li id="1">First <input type="radio" name="foo" checked="true"/></li><li id="2">Second <input type="radio" name="foo"/></li><li id="3">Third <input type="radio" name="foo"/></li><li id="4">Fourth <input type="radio" name="foo"/></li><li id="5">Fifth <input type="radio" name="foo"/></li><li id="6">Sixth <input type="radio" name="foo"/></li><li id="7">Seventh <input type="radio" name="foo"/></li><li id="8">Eigth <input type="radio" name="foo"/></li><li id="9">Nineth <input type="radio" name="foo"/></li<li id="10">Tenth <input type="radio" name="foo"/></li></ul><div id="order"></div>';

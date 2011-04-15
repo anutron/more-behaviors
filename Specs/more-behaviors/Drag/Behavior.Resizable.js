@@ -1,3 +1,12 @@
+/*
+---
+name: Behavior.Resizable Tests
+description: n/a
+requires: [More-Behaviors/Behavior.Resizable]
+provides: [Behavior.Resizable.Tests]
+...
+*/
+
 (function(){
 
 	var str = '<div data-filters="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}"><textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea><div id="textresizer"></div></div>';
