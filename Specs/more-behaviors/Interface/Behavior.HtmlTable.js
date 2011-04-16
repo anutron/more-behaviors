@@ -161,12 +161,13 @@ provides: [Behavior.HtmlTable.Tests]
 		returns: HtmlTable,
 		expectations: [
 			function(element, table){
+				expect(table._treeBuilt).toBe(undefined);
 				var first = element.getElement('tbody tr');
 				table.closeSection(first);
 				expect(table.isExpanded(first)).toBe(false);
 				table.expandSection(first);
 				expect(table.isExpanded(first)).toBe(true);
-				expect(table._treeBuilt).toBe(false);
+				expect(table._treeBuilt).toBe(true);
 			}
 		]
 	});
