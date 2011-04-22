@@ -10,17 +10,25 @@ script: Behavior.Resizable.js
 
 	Behavior.addGlobalFilters({
 
-		Resizable: function(element){
-			var options = {};
-			if (element.getData('resize-handle')) options.handle = element.getElement(element.getData('resize-handle'));
-			if (element.getData('resize-modifiers')) options.modifiers = element.getJSONData('resize-modifiers');
-			var target = element;
-			if (element.getData('resize-child')) target = element.getElement(element.getData('resize-child'));
-			var drag = target.makeResizable(options);
-			this.markForCleanup(element, function(){
-				drag.detach();
-			});
-			return drag;
+		Resizable: {
+			//deprecated options
+			deprecated: {
+				handle: 'resize-handle',
+				child: 'resize-child'
+			},
+			deprecatedAsJSON: {
+				modifiers: 'resize-modifiers'
+			},
+			setup: function(element, api){
+				var options = {};
+				if (api.get('handle')) options.handle = element.getElement(api.get('handle'));
+				if (api.get('modifiers')) options.modifiers = api.getAs(Object, 'modifiers');
+				var target = element;
+				if (api.get('child')) target = element.getElement(api.get('child'));
+				var drag = target.makeResizable(options);
+				api.onCleanup(drag.detach.bind(drag));
+				return drag;
+			}
 		}
 
 	});

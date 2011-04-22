@@ -22,7 +22,7 @@ provides: [Behavior.FxAccordion.Tests]
 		content: str,
 		returns: Fx.Accordion,
 		multiplier: 10,
-		noSpecs: true
+		specs: false
 	});
 
 })();

@@ -21,7 +21,7 @@ provides: [Behavior.FormRequest.Tests]
 		content: str,
 		returns: Form.Request,
 		multiplier: 10,
-		noSpecs: true
+		specs: false
 	});
 
 })();

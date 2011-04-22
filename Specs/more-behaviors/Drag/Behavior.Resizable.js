@@ -9,20 +9,46 @@ provides: [Behavior.Resizable.Tests]
 
 (function(){
 
-	var str = '<div data-filters="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}"><textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea><div id="textresizer"></div></div>';
+
+	var str = 
+	'<div data-filters="Resizable" data-resizable-handle="#textresizer" data-resizable-child="textarea" data-resizable-modifiers="{\'x\': false}">\
+		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
+		<div id="textresizer"></div>\
+	</div>';
 	Behavior.addFilterTest({
 		filterName: 'Resizable',
 		desc: 'Creates an instance of Resizable',
 		content: str,
-		returns: Drag
+		returns: Drag,
+		expects: function(element, instance){
+			expect(instance.options.handle.id).toBe('textresizer');
+		}
 	});
 	Behavior.addFilterTest({
 		filterName: 'Resizable',
 		desc: 'Creates an instance of Resizable (x10)',
 		content: str,
 		multiplier: 10,
-		noSpecs: true,
+		specs: false,
 		returns: Drag
+	});
+
+// deprecated html syntax; spec here to ensure it's still supported
+
+	var deprecated = 
+	'<div data-filters="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}">\
+		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
+		<div id="textresizer"></div>\
+	</div>';
+	Behavior.addFilterTest({
+		filterName: 'Resizable',
+		desc: 'Creates an instance of Resizable (deprecated)',
+		content: deprecated,
+		returns: Drag,
+		benchmarks: false,
+		expects: function(element, instance){
+			expect(instance.options.handle.id).toBe('textresizer');
+		}
 	});
 
 })();

@@ -22,7 +22,7 @@ provides: [Behavior.OverText.Tests]
 		content: str,
 		returns: OverText,
 		multiplier: 10,
-		noSpecs: true
+		specs: false
 	});
 
 })();

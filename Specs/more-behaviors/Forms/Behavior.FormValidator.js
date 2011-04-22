@@ -21,7 +21,7 @@ provides: [Behavior.FormValidator.Tests]
 		content: str,
 		returns: Form.Validator,
 		multiplier: 10,
-		noSpecs: true
+		specs: false
 	});
 
 })();

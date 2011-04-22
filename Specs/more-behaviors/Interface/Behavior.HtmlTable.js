@@ -71,11 +71,9 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (400 rows / 5 col); resizable',
 		content: header('resizable') + build(str, 400) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				expect(table._resizeEnabled).toBe(true);
-			}
-		]
+		expects: function(element, table){
+			expect(table._resizeEnabled).toBe(true);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -83,7 +81,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (1000 rows / 5 col); resizable',
 		content: header('resizable') + build(str, 1000) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 	Behavior.addFilterTest({
@@ -91,11 +89,9 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (400 rows / 5 col); sortable',
 		content: header('sortable') + build(str, 400) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				expect(table.sortEnabled).toBe(true);
-			}
-		]
+		expects: function(element, table){
+			expect(table.sortEnabled).toBe(true);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -103,7 +99,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (1000 rows / 5 col); sortable',
 		content: header('sortable') + build(str, 1000) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 	Behavior.addFilterTest({
@@ -111,12 +107,10 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (400 rows / 5 col); multiselect',
 		content: header('multiselect') + build(str, 400) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				table.selectAll();
-				expect(table.getSelected().length).toBe(400);
-			}
-		]
+		expects: function(element, table){
+			table.selectAll();
+			expect(table.getSelected().length).toBe(400);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -124,7 +118,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (1000 rows / 5 col); multiselect',
 		content: header('multiselect') + build(str, 1000) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 	Behavior.addFilterTest({
@@ -132,14 +126,12 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable',
 		content: header('multiselect sortable resizable') + build(str, 400) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				table.selectAll();
-				expect(table.getSelected().length).toBe(400);
-				expect(table.sortEnabled).toBe(true);
-				expect(table._resizeEnabled).toBe(true);
-			}
-		]
+		expects: function(element, table){
+			table.selectAll();
+			expect(table.getSelected().length).toBe(400);
+			expect(table.sortEnabled).toBe(true);
+			expect(table._resizeEnabled).toBe(true);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -147,7 +139,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable (1000 rows / 5 col); multiselect sortable resizable',
 		content: header('multiselect sortable resizable') + build(str, 1000) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 	var treeTable = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect">';
@@ -159,17 +151,15 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD',
 		content: treeTable + treeHead + build(treeRows, 20) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				expect(table._treeBuilt).toBe(undefined);
-				var first = element.getElement('tbody tr');
-				table.closeSection(first);
-				expect(table.isExpanded(first)).toBe(false);
-				table.expandSection(first);
-				expect(table.isExpanded(first)).toBe(true);
-				expect(table._treeBuilt).toBe(true);
-			}
-		]
+		expects: function(element, table){
+			expect(table._treeBuilt).toBe(undefined);
+			var first = element.getElement('tbody tr');
+			table.closeSection(first);
+			expect(table.isExpanded(first)).toBe(false);
+			table.expandSection(first);
+			expect(table.isExpanded(first)).toBe(true);
+			expect(table._treeBuilt).toBe(true);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -177,7 +167,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable NO BUILD',
 		content: treeTable + treeHead + build(treeRows, 20) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 	var treeTableBuild = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect buildTree">';
@@ -186,16 +176,14 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD',
 		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
 		returns: HtmlTable,
-		expectations: [
-			function(element, table){
-				var first = element.getElement('tbody tr');
-				table.closeSection(first);
-				expect(table.isExpanded(first)).toBe(false);
-				table.expandSection(first);
-				expect(table.isExpanded(first)).toBe(true);
-				expect(table._treeBuilt).toBe(true);
-			}
-		]
+		expects: function(element, table){
+			var first = element.getElement('tbody tr');
+			table.closeSection(first);
+			expect(table.isExpanded(first)).toBe(false);
+			table.expandSection(first);
+			expect(table.isExpanded(first)).toBe(true);
+			expect(table._treeBuilt).toBe(true);
+		}
 	});
 
 	Behavior.addFilterTest({
@@ -203,7 +191,7 @@ provides: [Behavior.HtmlTable.Tests]
 		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable BUILD',
 		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
 		returns: HtmlTable,
-		noSpecs: true
+		specs: false
 	});
 
 })();
