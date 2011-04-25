@@ -119,7 +119,7 @@ Configuration.source = {
 			'mootools-more/Source/Utilities/Table',
 			'behavior/Source/Behavior',
 			'behavior/Source/Element.Data',
-			'behavior/Source/Behavior.API',
+			'behavior/Source/BehaviorAPI',
 			'../Source/Drag/Behavior.Resizable',
 			'../Source/Drag/Behavior.Sortable',
 			'../Source/Forms/Behavior.OverText',
