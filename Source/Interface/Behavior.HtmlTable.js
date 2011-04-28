@@ -7,29 +7,72 @@ script: Behavior.HtmlTable.js
 ...
 */
 
-Behavior.addGlobalFilters({
+/*
+	Refactor HtmlTable.Sort functionality:
+	don't detect the parsers on startup
+	wait for click
+	unless the option says to sort on startup
+*/
 
-	HtmlTable: function(element){
+HtmlTable = Class.refactor(HtmlTable, {
+	detectParsers: function(){
+		//if we are parsing on startup, then set ready to true
+		if (this.options.sortOnStartup) this._readyToParse = true;
+		//otherwise, don't parse until ready
+		if (this._readyToParse) {
+			this._parsed = true;
+			return this.previous();
+		}
+	},
+	headClick: function(event, el){
+		//on click, if we haven't parsed, set ready to true and run the parser
+		if (!this._parsed) {
+			this._readyToParse = true;
+			this.detectParsers();
+		}
+		this.previous(event, el);
+	},
+	sort: function(index, reverse, pre){
+		//don't sort if we haven't parsed; this prevents sorting on startup
+		if (this._parsed) return this.previous(index, reverse, pre);
+	}
+});
+
+
+Behavior.addGlobalFilter('HtmlTable', {
+
+	deprecatedAsJSON: {
+		resize: 'table-resize'
+	},
+
+	defaults: {
+		classNoSort: 'noSort'
+	},
+
+	setup: function(element, api){
 		//make all data tables sortable
 		var firstSort;
 		element.getElements('thead th').each(function(th, i){
 			if (firstSort == null && !th.hasClass('noSort')) firstSort = i;
 			if (th.hasClass('defaultSort')) firstSort = i;
 		});
-		var multiselectable = element.hasClass('multiselect');
+		api.setDefault('firstSort', firstSort);
+		var multiselectable = api.getAs(Boolean, 'multiselect', element.hasClass('multiselect'));
 		var table = new HtmlTable(element, {
-			sortIndex: firstSort,
-			sortable: element.hasClass('sortable') && !element.hasClass('treeview'),
-			classNoSort: 'noSort',
-			selectable: element.hasClass('selectable') || multiselectable,
+			parsers: api.getAs(Array, 'parsers'),
+			sortOnStartup: api.getAs(Boolean, 'sortOnStartup'),
+			sortIndex: api.getAs(Number, 'firstSort'),
+			sortable: api.getAs(Boolean, 'sortable', /* deprecated default: */ element.hasClass('sortable') && !element.hasClass('treeview')),
+			classNoSort: api.get('noSort'),
+			selectable: api.getAs(Boolean, 'selectable', /* deprecated default: */ element.hasClass('selectable') || multiselectable),
 			allowMultiSelect: multiselectable,
-			useKeyboard: !element.hasClass('noKeyboard'),
-			enableTree: element.hasClass('treeView'),
-			resizable: element.hasClass('resizable'),
-			resize: element.getData('table-resize'),
-			build: element.hasClass('buildTree')
+			useKeyboard: api.getAs(Boolean, 'useKeybaord', /* deprecated default: */ !element.hasClass('noKeyboard')),
+			enableTree: api.getAs(Boolean, 'enableTree', /* deprecated default: */ element.hasClass('treeView')),
+			resizable: api.getAs(Boolean, 'resizable', /* deprecated default: */ element.hasClass('resizable')),
+			resize: api.getAs(Boolean, 'resize'),
+			build: api.getAs(Boolean, 'build', /* deprecated default: */ element.hasClass('buildTree'))
 		});
-		this.markForCleanup(element, function(){
+		api.onCleanup(function(){
 			if (table.keyboard) table.keyboard.relinquish();
 		});
 		// Hack to make tables not jump around in Chrome.

@@ -7,15 +7,45 @@ script: Behavior.Accordion.js
 ...
 */
 
-Behavior.addGlobalFilters({
-	Accordion: function(element) {
-		var toggles = element.getData('toggler-elements') || '.toggle';
-		var sections = element.getData('section-elements') || '.target';
-		var accordion = new Fx.Accordion(toggles, sections);
-		this.markForCleanup(element, function() {
-			accordion.detach();
-		});
+Behavior.addGlobalFilter('Accordion', {
+	deprecated: {
+		headers:'toggler-elements',
+		sections:'section-elements'
+	},
+	defaults: {
+		// defaults from Fx.Accordion:
+		display: 0,
+		height: true,
+		width: false,
+		opacity: true,
+		alwaysHide: false,
+		trigger: 'click',
+		initialDisplayFx: true,
+		resetHeight: true,
+		headers: '.header',
+		sections: '.section'
+	},
+	setup: function(element, api){
+		var accordion = new Fx.Accordion(element.getElements(api.get('headers')), element.getElements(api.get('sections')),
+			$merge(api.getAs({
+				fixedHeight: Number,
+				fixedWidth: Number,
+				display: Number,
+				show: Number,
+				height: Boolean,
+				width: Boolean,
+				opacity: Boolean,
+				alwaysHide: Boolean,
+				trigger: String,
+				initialDisplayFx: Boolean,
+				resetHeight: Boolean
+			}), {
+				opacity: api.getAs(Boolean, 'fade'),
+				height: api.get('orientation') == 'vertical',
+				width: api.get('orientation') == 'horizontal'
+			})
+		);
+		api.onCleanup(accordion.detach.bind(accordion));
 		return accordion;
 	}
 });
-

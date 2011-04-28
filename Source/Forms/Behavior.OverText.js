@@ -6,14 +6,15 @@ requires: [Behavior/Behavior, More/OverText]
 script: Behavior.OverText.js
 ...
 */
-Behavior.addGlobalFilter('OverText', function(element, behaviorAPI){
+Behavior.addGlobalFilter('OverText', function(element, api){
+
 	//create the overtext instance
 	var ot = new OverText(element);
 	element.get('class').split(' ').each(function(cls) {
-		if (cls) ot.text.addClass('OverText-'+cls);
+		if (cls) ot.text.addClass('overText-'+cls);
 	});
 	element.getDataFilters().each(function(filter){
-		if (filter != "OverText") ot.text.addClass('OverText-'+filter);
+		if (filter != "OverText") ot.text.addClass('overText-'+filter);
 	});
 
 	//this method updates the text position with a slight delay
@@ -22,10 +23,10 @@ Behavior.addGlobalFilter('OverText', function(element, behaviorAPI){
 	};
 
 	//update the position whenever the behavior element is shown
-	behaviorAPI.addEvent('show', updater);
+	api.addEvent('layout:display', updater);
 
-	behaviorAPI.markForCleanup(element, function(){
-		behaviorAPI.removeEvent('show', updater);
+	api.onCleanup(function(){
+		api.removeEvent('layout:display', updater);
 		ot.destroy();
 	});
 	return ot;

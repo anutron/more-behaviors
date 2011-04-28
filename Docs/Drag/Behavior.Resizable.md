@@ -17,8 +17,8 @@ Creates an instance of [Drag][] for an element using the `Resizable` data filter
 
 ### Options
 
-* handle - (*string*; optional) a CSS selector run from the target element to find a handle. Passed to [Drag][] as `options.handle`.
-* child - (*string*; optional) a CSS selector run from the target element to find the element to be resized. If not defined the target element is resized.
-* modifiers - (*object*; optional) an object with key/values for x/y modifiers. Passed to [Drag][] as `options.modifiers`.
+* handle - (*string*) a CSS selector run from the target element to find a handle. Passed to [Drag][] as `options.handle`.
+* child - (*string*) a CSS selector run from the target element to find the element to be resized. If not defined the target element is resized.
+* modifiers - (*object*) an object with key/values for x/y modifiers. Passed to [Drag][] as `options.modifiers`.
 
 [Drag]: http://mootools.net/docs/more/Drag/Drag#Element:makeResizable

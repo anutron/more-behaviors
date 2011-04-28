@@ -8,16 +8,41 @@ script: Behavior.FormValidator.js
 ...
 */
 
-Behavior.addGlobalFilters({
-
-	//validates any form with the .form-validator class
-	FormValidator: function(element, api) {
+Behavior.addGlobalFilter('FormValidator', {
+	defaults: {
+		useTitles: true,
+		scrollToErrorsOnSubmit: true,
+		scrollToErrorsOnBlur: false,
+		scrollToErrorsOnChange: false,
+		ignoreHidden: true,
+		ignoreDisabled: true,
+		useTitles: false,
+		evaluateOnSubmit: true,
+		evaluateFieldsOnBlur: true,
+		evaluateFieldsOnChange: true,
+		serial: true,
+		stopOnFailure: true
+	},
+	setup: function(element, api) {
 		//instantiate the form validator
 		var validator = element.retrieve('validator');
 		if (!validator) {
-			validator = new Form.Validator.Inline(element, {
-				useTitles: true
-			});
+			validator = new Form.Validator.Inline(element, 
+				api.getAs({
+					useTitles: Boolean,
+					scrollToErrorsOnSubmit: Boolean,
+					scrollToErrorsOnBlur: Boolean,
+					scrollToErrorsOnChange: Boolean,
+					ignoreHidden: Boolean,
+					ignoreDisabled: Boolean,
+					useTitles: Boolean,
+					evaluateOnSubmit: Boolean,
+					evaluateFieldsOnBlur: Boolean,
+					evaluateFieldsOnChange: Boolean,
+					serial: Boolean,
+					stopOnFailure: Boolean
+				})
+			);
 		}
 		//if the api provides a getScroller method, which should return an instance of
 		//Fx.Scroll, use it instead

@@ -8,12 +8,18 @@ provides: [Behavior.FormValidator.Tests]
 */
 (function(){
 
-	var str = '<form data-filters="FormValidator"></form>';
+	var str = '<form data-filters="FormValidator" data-formvalidator-options="\
+		\'serial\': false\
+	" data-formvalidator-ignore-hidden="false"></form>';
 	Behavior.addFilterTest({
 		filterName: 'FormValidator',
 		desc: 'Creates an instance of FormValidator',
 		content: str,
-		returns: Form.Validator
+		returns: Form.Validator,
+		expect: function(element, instance){
+			expect(instance.options.serial).toBe(false);
+			expect(instance.options.ignoreHidden).toBe(false);
+		}
 	});
 	Behavior.addFilterTest({
 		filterName: 'FormValidator',
