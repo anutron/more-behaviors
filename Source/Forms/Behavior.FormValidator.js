@@ -2,7 +2,7 @@
 ---
 description: Adds an instance of Form.Validator.Inline to any form with the class .form-validator.
 provides: [Behavior.FormValidator]
-requires: [Behavior/Behavior, More/Form.Validator.Inline]
+requires: [Behavior/Behavior, More/Form.Validator.Inline, More/Object.Extras]
 script: Behavior.FormValidator.js
 
 ...
@@ -28,20 +28,22 @@ Behavior.addGlobalFilter('FormValidator', {
 		var validator = element.retrieve('validator');
 		if (!validator) {
 			validator = new Form.Validator.Inline(element, 
-				api.getAs({
-					useTitles: Boolean,
-					scrollToErrorsOnSubmit: Boolean,
-					scrollToErrorsOnBlur: Boolean,
-					scrollToErrorsOnChange: Boolean,
-					ignoreHidden: Boolean,
-					ignoreDisabled: Boolean,
-					useTitles: Boolean,
-					evaluateOnSubmit: Boolean,
-					evaluateFieldsOnBlur: Boolean,
-					evaluateFieldsOnChange: Boolean,
-					serial: Boolean,
-					stopOnFailure: Boolean
-				})
+				Object.cleanValues(
+					api.getAs({
+						useTitles: Boolean,
+						scrollToErrorsOnSubmit: Boolean,
+						scrollToErrorsOnBlur: Boolean,
+						scrollToErrorsOnChange: Boolean,
+						ignoreHidden: Boolean,
+						ignoreDisabled: Boolean,
+						useTitles: Boolean,
+						evaluateOnSubmit: Boolean,
+						evaluateFieldsOnBlur: Boolean,
+						evaluateFieldsOnChange: Boolean,
+						serial: Boolean,
+						stopOnFailure: Boolean
+					})
+				)
 			);
 		}
 		//if the api provides a getScroller method, which should return an instance of

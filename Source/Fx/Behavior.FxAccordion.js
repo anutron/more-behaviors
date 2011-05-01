@@ -2,7 +2,7 @@
 ---
 description: Creates an Fx.Accordion from any element with Accordion in its data-filters property.  Uses the .toggle elements within the element as the toggles and the .target elements as the targets. 
 provides: [Behavior.Accordion, Behavior.FxAccordion]
-requires: [Behavior/Behavior, More/Fx.Accordion, Behavior/Element.Data]
+requires: [Behavior/Behavior, More/Fx.Accordion, Behavior/Element.Data, More/Object.Extras]
 script: Behavior.Accordion.js
 ...
 */
@@ -27,23 +27,25 @@ Behavior.addGlobalFilter('Accordion', {
 	},
 	setup: function(element, api){
 		var accordion = new Fx.Accordion(element.getElements(api.get('headers')), element.getElements(api.get('sections')),
-			$merge(api.getAs({
-				fixedHeight: Number,
-				fixedWidth: Number,
-				display: Number,
-				show: Number,
-				height: Boolean,
-				width: Boolean,
-				opacity: Boolean,
-				alwaysHide: Boolean,
-				trigger: String,
-				initialDisplayFx: Boolean,
-				resetHeight: Boolean
-			}), {
-				opacity: api.getAs(Boolean, 'fade'),
-				height: api.get('orientation') == 'vertical',
-				width: api.get('orientation') == 'horizontal'
-			})
+			Object.cleanValues(
+				Object.merge(api.getAs({
+					fixedHeight: Number,
+					fixedWidth: Number,
+					display: Number,
+					show: Number,
+					height: Boolean,
+					width: Boolean,
+					opacity: Boolean,
+					alwaysHide: Boolean,
+					trigger: String,
+					initialDisplayFx: Boolean,
+					resetHeight: Boolean
+				}), {
+					opacity: api.getAs(Boolean, 'fade'),
+					height: api.get('orientation') == 'vertical',
+					width: api.get('orientation') == 'horizontal'
+				})
+			)
 		);
 		api.onCleanup(accordion.detach.bind(accordion));
 		return accordion;
