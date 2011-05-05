@@ -26,11 +26,13 @@ Behavior.addGlobalFilter('FormRequest', {
 		} else if (update =="self") {
 			updateElement = element;
 		//these are deprecated
+		// <jframe.compat>
 			} else if (api.get('update-by-id')){
 				updateElement = document.id(api.get('update-by-id'));
 			} else if (api.get('update-by-selector')){
 				updateElement = document.id(api.getContentElement()).getElement(api.get('update-by-selector'));
 		// end deprecated
+		// </jframe.compat>
 		} else {
 			updateElement = element.getElement(update);
 		}
