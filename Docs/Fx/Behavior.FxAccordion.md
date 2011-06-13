@@ -5,7 +5,7 @@ Creates an instance of [Fx.Accorion][] for an element using the `Accordion` data
 
 ### Example
 
-	<div data-filters="Accordion" data-accordion-options="
+	<div data-behavior="Accordion" data-accordion-options="
 	    'headers':'.header' //the default
 	    'sections':'.section' //the default
 	    'display': 1,

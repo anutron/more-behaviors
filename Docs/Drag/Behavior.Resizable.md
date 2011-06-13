@@ -5,7 +5,7 @@ Creates an instance of [Drag][] for an element using the `Resizable` data filter
 
 ### Example
 
-	<div data-filters="Resizable" data-resizable-options="
+	<div data-behavior="Resizable" data-resizable-options="
 	  'handle': '#textresizer',
 	  'child':'textarea',
 	  'modifiers': {'x': false}

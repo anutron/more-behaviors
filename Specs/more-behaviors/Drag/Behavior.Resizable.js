@@ -11,7 +11,7 @@ provides: [Behavior.Resizable.Tests]
 
 
 	var str = 
-	'<div data-filters="Resizable" data-resizable-handle="#textresizer" data-resizable-child="textarea" data-resizable-modifiers="{\'x\': false}">\
+	'<div data-behavior="Resizable" data-resizable-handle="#textresizer" data-resizable-child="textarea" data-resizable-modifiers="{\'x\': false}">\
 		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
 		<div id="textresizer"></div>\
 	</div>';
@@ -36,7 +36,7 @@ provides: [Behavior.Resizable.Tests]
 // deprecated html syntax; spec here to ensure it's still supported
 
 	var deprecated = 
-	'<div data-filters="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}">\
+	'<div data-behavior="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}">\
 		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
 		<div id="textresizer"></div>\
 	</div>';

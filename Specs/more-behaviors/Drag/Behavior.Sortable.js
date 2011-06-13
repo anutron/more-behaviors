@@ -10,7 +10,7 @@ provides: [Behavior.Sortable.Tests]
 (function(){
 
 	var str = 
-	'<ul id="SortableExample" data-filters="Sortable" data-sortable-state="#order">\
+	'<ul id="SortableExample" data-behavior="Sortable" data-sortable-state="#order">\
 		<li id="1">First <input type="radio" name="foo" checked="true"/></li>\
 		<li id="2">Second <input type="radio" name="foo"/></li>\
 		<li id="3">Third <input type="radio" name="foo"/></li>\
@@ -43,7 +43,7 @@ provides: [Behavior.Sortable.Tests]
 	});
 	
 	var multi = 
-	'<div data-filters="Sortable" class="example2" data-sortable-lists="ul" data-sortable-state=".order2">\
+	'<div data-behavior="Sortable" class="example2" data-sortable-lists="ul" data-sortable-state=".order2">\
 		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">\
 			<li id="1" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">First</li>\
 			<li id="2" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Second</li>\
@@ -79,7 +79,7 @@ provides: [Behavior.Sortable.Tests]
 // deprecated html syntax; spec here to ensure it's still supported
 
 	var dep_str = 
-	'<ul id="SortableExample" data-filters="Sortable" data-sort-state="#order">\
+	'<ul id="SortableExample" data-behavior="Sortable" data-sort-state="#order">\
 		<li id="1">First <input type="radio" name="foo" checked="true"/></li>\
 		<li id="2">Second <input type="radio" name="foo"/></li>\
 		<li id="3">Third <input type="radio" name="foo"/></li>\
@@ -105,7 +105,7 @@ provides: [Behavior.Sortable.Tests]
 	});
 
 	var dep_multi = 
-	'<div data-filters="Sortable" class="example2" data-sort-lists="ul" data-sort-state=".order2">\
+	'<div data-behavior="Sortable" class="example2" data-sort-lists="ul" data-sort-state=".order2">\
 		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">\
 			<li id="1" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">First</li>\
 			<li id="2" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">Second</li>\

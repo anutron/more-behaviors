@@ -9,7 +9,7 @@ provides: [Behavior.FormRequest.Tests]
 (function(){
 
 	var str = 
-	'<form data-filters="FormRequest" data-formrequest-options="\'update\': \'+.#formRequestTest\'"></form>\
+	'<form data-behavior="FormRequest" data-formrequest-options="\'update\': \'+.#formRequestTest\'"></form>\
 	 <div id="formRequestTest"></div>';
 	Behavior.addFilterTest({
 		filterName: 'FormRequest',
@@ -31,7 +31,7 @@ provides: [Behavior.FormRequest.Tests]
 
 
 	var deprecated = 
-	'<form data-filters="FormRequest" data-update-by-selector=".formRequestTest"></form>\
+	'<form data-behavior="FormRequest" data-update-by-selector=".formRequestTest"></form>\
 	 <div class="formRequestTest"></div>';
 	Behavior.addFilterTest({
 		filterName: 'FormRequest',

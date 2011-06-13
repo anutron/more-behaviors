@@ -11,7 +11,7 @@ See also:
 
 ### Example
 
-	<table data-filters="HtmlTable" data-htmltable-options="
+	<table data-behavior="HtmlTable" data-htmltable-options="
 		'sortable':true, 'selectable':true,
 		'parsers':['number', 'string']
 	">

@@ -14,7 +14,7 @@ Behavior.addGlobalFilter('OverText', function(element, api){
 	element.get('class').split(' ').each(function(cls) {
 		if (cls) ot.text.addClass('overText-'+cls);
 	});
-	element.getDataFilters().each(function(filter){
+	element.getBehaviors().each(function(filter){
 		if (filter != "OverText") ot.text.addClass('overText-'+filter);
 	});
 

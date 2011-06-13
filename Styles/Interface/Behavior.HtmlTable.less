@@ -1,10 +1,10 @@
-table[data-filters*=HtmlTable] {
+table[data-behavior*=HtmlTable] {
 	width: 100%;
 }
-table[data-filters*=HtmlTable] thead, table[data-filters*=HtmlTable] tfoot {
+table[data-behavior*=HtmlTable] thead, table[data-behavior*=HtmlTable] tfoot {
 	background: url(th_back.png);
 }
-table[data-filters*=HtmlTable] thead th, table[data-filters*=HtmlTable] tfoot th {
+table[data-behavior*=HtmlTable] thead th, table[data-behavior*=HtmlTable] tfoot th {
 	text-align: left;
 	white-space: nowrap;
 	padding: 0px 6px;
@@ -16,11 +16,11 @@ table[data-filters*=HtmlTable] thead th, table[data-filters*=HtmlTable] tfoot th
 	font-weight: normal;
 	overflow: hidden;
 }
-table[data-filters*=HtmlTable] th:last-child {
+table[data-behavior*=HtmlTable] th:last-child {
 	border-right: none;
 }
 
-table[data-filters*=HtmlTable] td {
+table[data-behavior*=HtmlTable] td {
 	white-space: nowrap;
 	padding: 0px 8px;
 	height: 20px;
@@ -29,7 +29,7 @@ table[data-filters*=HtmlTable] td {
 	border: none;
 	overflow: hidden;
 }
-table[data-filters*=HtmlTable] tr.table-tr-odd td {
+table[data-behavior*=HtmlTable] tr.table-tr-odd td {
 	background-color: #f3f3f3;
 }
 table.jframe-bordered-table {
@@ -38,23 +38,23 @@ table.jframe-bordered-table {
 	border: 1px solid #888;
 }
 
-table[data-filters*=HtmlTable].selectable tr:hover > td, table[data-filters*=HtmlTable].selectable tr.table-tr-hovered td,
-	table[data-filters*=HtmlTable].multiselect tr:hover > td, table[data-filters*=HtmlTable].multiselect tr.table-tr-hovered td,
-	table[data-filters*=HtmlTable].selectable tr:hover > td a, table[data-filters*=HtmlTable].selectable tr.table-tr-hovered td a,
-	table[data-filters*=HtmlTable].multiselect tr:hover > td a, table[data-filters*=HtmlTable].multiselect tr.table-tr-hovered td a {
+table[data-behavior*=HtmlTable].selectable tr:hover > td, table[data-behavior*=HtmlTable].selectable tr.table-tr-hovered td,
+	table[data-behavior*=HtmlTable].multiselect tr:hover > td, table[data-behavior*=HtmlTable].multiselect tr.table-tr-hovered td,
+	table[data-behavior*=HtmlTable].selectable tr:hover > td a, table[data-behavior*=HtmlTable].selectable tr.table-tr-hovered td a,
+	table[data-behavior*=HtmlTable].multiselect tr:hover > td a, table[data-behavior*=HtmlTable].multiselect tr.table-tr-hovered td a {
 	background-color: #d4e7f8;
 	color: #000;
 	cursor: pointer;
 }
 
-table[data-filters*=HtmlTable] tr.selected td,
-	table[data-filters*=HtmlTable] tr.table-tr-selected td,
-	table[data-filters*=HtmlTable] tr.selected td a,
-	table[data-filters*=HtmlTable] tr.table-tr-selected td a,
-	table[data-filters*=HtmlTable] tr.selected:hover td,
-	table[data-filters*=HtmlTable] tr.table-tr-selected:hover td,
-	table[data-filters*=HtmlTable] tr.selected:hover td a,
-	table[data-filters*=HtmlTable] tr.table-tr-selected:hover td a {
+table[data-behavior*=HtmlTable] tr.selected td,
+	table[data-behavior*=HtmlTable] tr.table-tr-selected td,
+	table[data-behavior*=HtmlTable] tr.selected td a,
+	table[data-behavior*=HtmlTable] tr.table-tr-selected td a,
+	table[data-behavior*=HtmlTable] tr.selected:hover td,
+	table[data-behavior*=HtmlTable] tr.table-tr-selected:hover td,
+	table[data-behavior*=HtmlTable] tr.selected:hover td a,
+	table[data-behavior*=HtmlTable] tr.table-tr-selected:hover td a {
 	background-color: #3875d7;
 	color: #fff;
 }
@@ -80,10 +80,10 @@ span.table-th-sort-span {
 .table-th-sort-rev span.table-th-sort-span {
 	background: url(bullet_arrow_up.png) -4px top no-repeat;
 }
-table[data-filters*=HtmlTable].treeView tr.hidden {
+table[data-behavior*=HtmlTable].treeView tr.hidden {
 	display: none;
 }
-table[data-filters*=HtmlTable].treeView tr a.expand {
+table[data-behavior*=HtmlTable].treeView tr a.expand {
 	display: block;
 	float: left;
 	width: 10px;
@@ -95,10 +95,10 @@ table[data-filters*=HtmlTable].treeView tr a.expand {
 	text-indent: -200px;
 	overflow: hidden;
 }
-table[data-filters*=HtmlTable].treeView tr.table-expanded a.expand {
+table[data-behavior*=HtmlTable].treeView tr.table-expanded a.expand {
 	background: url(divots.png) 0px -14px;
 }
-table[data-filters*=HtmlTable].treeView tbody tr > td:first-child {
+table[data-behavior*=HtmlTable].treeView tbody tr > td:first-child {
 	padding-right: 20px;
 }
 .table-th-resizable.table-th-sort span.table-th-sort-span, .table-th-resizable.table-th-sort-rev span.table-th-sort-span {

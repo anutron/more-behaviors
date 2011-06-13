@@ -8,7 +8,7 @@ provides: [Behavior.FormValidator.Tests]
 */
 (function(){
 
-	var str = '<form data-filters="FormValidator" data-formvalidator-options="\
+	var str = '<form data-behavior="FormValidator" data-formvalidator-options="\
 		\'serial\': false\
 	" data-formvalidator-ignore-hidden="false"></form>';
 	Behavior.addFilterTest({

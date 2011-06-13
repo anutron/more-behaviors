@@ -10,7 +10,7 @@ provides: [Behavior.FxAccordion.Tests]
 (function(){
 
 	var str = 
-	'<div data-filters="Accordion" data-accordion-options="\'display\': 1, \'initialDisplayFx\': false"\
+	'<div data-behavior="Accordion" data-accordion-options="\'display\': 1, \'initialDisplayFx\': false"\
 	    style="width: 300px; margin: 10px;">\
 	  <div class="header" style="cursor:pointer; background: #777; padding: 2px;">Toggle 1</div>\
 	  <div class="section" style="padding: 4px;">This area is controlled by Toggle 1.</div>\

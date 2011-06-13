@@ -5,7 +5,7 @@ Creates an instance of [Form.Validator.Inline][] for an element using the `FormV
 
 ### Example
 
-	<form data-filters="FormValidator" data-formrequest-options="
+	<form data-behavior="FormValidator" data-formrequest-options="
 	  'stopOnFailure': false,
 	  'serial': false
 	  //etc

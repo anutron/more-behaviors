@@ -51,12 +51,12 @@ provides: [Behavior.HtmlTable.Tests]
 	];
 
 	var header = function(cls, dataProps){ 
-		var str = '<table data-filters="HtmlTable" ';
+		var str = '<table data-behavior="HtmlTable" ';
 
 		for (prop in dataProps){
-			str += prop + '="'  + dataProps + '"';
+			str += prop + '="'  + dataProps[prop] + '"';
 		}
-		
+
 		str +=     ' class="' + cls + '" data-table-resize="table" cellpadding="0" cellspacing="0">\
 							<thead>\
 								<tr>\
@@ -165,7 +165,7 @@ provides: [Behavior.HtmlTable.Tests]
 		specs: false
 	});
 
-	var treeTable = '<table id="tree2" data-filters="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true">';
+	var treeTable = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true">';
 	var treeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
 	var treeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
 
@@ -193,7 +193,7 @@ provides: [Behavior.HtmlTable.Tests]
 		specs: false
 	});
 
-	var treeTableBuild = '<table id="tree2" data-filters="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true, \'build\': true">';
+	var treeTableBuild = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true, \'build\': true">';
 	Behavior.addFilterTest({
 		filterName: 'HtmlTable',
 		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD',
@@ -264,7 +264,7 @@ provides: [Behavior.HtmlTable.Tests]
 		}
 	});
 
-	var deprecatedTreeTable = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect">';
+	var deprecatedTreeTable = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect">';
 	var deprecatedTreeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
 	var deprecatedTreeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
 
@@ -284,7 +284,7 @@ provides: [Behavior.HtmlTable.Tests]
 		}
 	});
 
-	var deprecatedTreeTableBuild = '<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect buildTree">';
+	var deprecatedTreeTableBuild = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect buildTree">';
 	Behavior.addFilterTest({
 		filterName: 'HtmlTable',
 		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD (deprecated)',

@@ -1,6 +1,6 @@
 /*
 ---
-description: Creates an Fx.Accordion from any element with Accordion in its data-filters property.  Uses the .toggle elements within the element as the toggles and the .target elements as the targets. 
+description: Creates an Fx.Accordion from any element with Accordion in its data-behavior property.  Uses the .toggle elements within the element as the toggles and the .target elements as the targets. 
 provides: [Behavior.Accordion, Behavior.FxAccordion]
 requires: [Behavior/Behavior, More/Fx.Accordion, Behavior/Element.Data, More/Object.Extras]
 script: Behavior.Accordion.js

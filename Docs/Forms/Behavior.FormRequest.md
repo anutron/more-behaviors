@@ -5,7 +5,7 @@ Creates an instance of [Form.Request][] for an element using the `FormRequest` d
 
 ### Example
 
-	<form data-filters="FormRequest" data-formrequest-options="
+	<form data-behavior="FormRequest" data-formrequest-options="
 	  'update': '+.#target', //see additional targeting options below
 	  'filter': 'div.someSubsetOfTheResponse'
 	">

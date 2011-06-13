@@ -5,7 +5,7 @@ Creates an instance of [Sortables][] for an element using the `Sortables` data f
 
 ### Example
 
-	<div data-filters="Sortable" data-sortable-options="
+	<div data-behavior="Sortable" data-sortable-options="
 	  'state': '#order',
 	  'property': 'value',
 	  'property-child': 'input[type=radio]'

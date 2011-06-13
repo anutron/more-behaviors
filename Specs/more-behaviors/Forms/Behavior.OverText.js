@@ -9,7 +9,7 @@ provides: [Behavior.OverText.Tests]
 
 (function(){
 
-	var str = '<input data-filters="OverText" title="test"/>';
+	var str = '<input data-behavior="OverText" title="test"/>';
 	Behavior.addFilterTest({
 		filterName: 'OverText',
 		desc: 'Creates an instance of OverText',

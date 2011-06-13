@@ -11,7 +11,7 @@
 	<body>
 
 		<p>The table below will appear to be a tree view table immediately, even before scripts are loaded. It will become interactive once the scripts have loaded. You should be able to click a section's expand arrow to expand it. Keys should work - up and down to navigate, shift + up and down to multiselect, left and right to collapse and expand sections.</p>
-		<table id="tree2" data-filters="HtmlTable" class="selectable treeView multiselect">
+		<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect">
 			<thead>
 				<th>Name</th>
 				<th>Date Modified</th>
@@ -121,7 +121,7 @@
 
 		<p>The table below will turn into a treeview on startup. It will appear to be a normal table until then. The add row link above the table will add a new item inside the Documents folder.</p>
 		<a id="addRow">Add Row to Documents</a>
-		<table id="tree" data-filters="HtmlTable" class="selectable treeView buildTree">
+		<table id="tree" data-behavior="HtmlTable" class="selectable treeView buildTree">
 			<thead>
 				<th>Name</th>
 				<th>Date Modified</th>
