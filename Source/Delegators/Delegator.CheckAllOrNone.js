@@ -4,6 +4,7 @@ description: Checks all or none of a group of checkboxes.
 provides: [Delegator.CheckAllOrNone]
 requires: [Behavior/Delegator]
 script: Delegator.CheckAllOrNone.js
+name: Delegator.CheckAllOrNone
 
 ...
 */

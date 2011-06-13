@@ -4,6 +4,7 @@ description: Provides functionality for links that load content into a target el
 provides: [Delegator.Ajax]
 requires: [Behavior/Delegator, Core/Request.HTML, More/Spinner]
 script: Delegator.Ajax.js
+name: Delegator.Ajax
 ...
 */
 

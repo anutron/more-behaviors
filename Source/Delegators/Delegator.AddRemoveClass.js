@@ -4,6 +4,7 @@ description: Provides methods to add/remove/toggle a class on a given target.
 provides: [Delegator.ToggleClass, Delegator.AddClass, Delegator.RemoveClass]
 requires: [Behavior/Delegator, Core/Element]
 script: Delegator.AddRemoveClass.js
+name: Delegator.AddRemoveClass
 
 ...
 */

@@ -4,6 +4,7 @@ description: When the user clicks a link with this delegator, submit the target 
 provides: [Delegator.SubmitLink]
 requires: [Behavior/Delegator]
 script: Delegator.SubmitLink.js
+name: Delegator.SubmitLink
 
 ...
 */
