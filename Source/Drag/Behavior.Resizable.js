@@ -4,6 +4,7 @@ description: Creates instances of Drag for resizable elements.
 provides: [Behavior.Resizable]
 requires: [Behavior/Behavior, More/Drag]
 script: Behavior.Resizable.js
+name: Behavior.Resizable
 ...
 */
 Behavior.addGlobalFilter('Resizable', {

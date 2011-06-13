@@ -4,6 +4,7 @@ description: Sets up an input to have an OverText instance for inline labeling. 
 provides: [Behavior.OverText]
 requires: [Behavior/Behavior, More/OverText]
 script: Behavior.OverText.js
+name: Behavior.OverText
 ...
 */
 Behavior.addGlobalFilter('OverText', function(element, api){

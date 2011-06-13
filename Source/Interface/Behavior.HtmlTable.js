@@ -4,6 +4,7 @@ description: Creates instances of HtmlTable for tables with the HtmlTable filter
 provides: [Behavior.HtmlTable]
 requires: [Behavior/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/HtmlTable.Tree, More/HtmlTable.Resize, More/Object.Extras]
 script: Behavior.HtmlTable.js
+name: Behavior.HtmlTable
 ...
 */
 

@@ -4,6 +4,7 @@ description: Creates instances of Sortable for sortable lists, optionally updati
 provides: [Behavior.Sortable]
 requires: [Behavior/Behavior, More/Sortables, More/Scroller]
 script: Behavior.HtmlTable.js
+name: Behavior.HtmlTable
 ...
 */
 (function(){

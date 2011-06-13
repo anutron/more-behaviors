@@ -4,7 +4,7 @@ description: Adds an instance of Form.Validator.Inline to any form with the clas
 provides: [Behavior.FormValidator]
 requires: [Behavior/Behavior, More/Form.Validator.Inline, More/Object.Extras]
 script: Behavior.FormValidator.js
-
+name: Behavior.FormValidator
 ...
 */
 

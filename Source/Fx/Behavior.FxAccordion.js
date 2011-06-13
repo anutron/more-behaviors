@@ -4,6 +4,7 @@ description: Creates an Fx.Accordion from any element with Accordion in its data
 provides: [Behavior.Accordion, Behavior.FxAccordion]
 requires: [Behavior/Behavior, More/Fx.Accordion, Behavior/Element.Data, More/Object.Extras]
 script: Behavior.Accordion.js
+name: Behavior.Accordion
 ...
 */
 

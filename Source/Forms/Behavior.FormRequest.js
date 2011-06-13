@@ -4,6 +4,7 @@ description: Makes form elements with a FormRequest data filter automatically up
 provides: [Behavior.FormRequest]
 requires: [Behavior/Behavior, More/Form.Request, Behavior/Element.Data]
 script: Behavior.FormRequest.js
+name: Behavior.FormRequest
 ...
 */
 
