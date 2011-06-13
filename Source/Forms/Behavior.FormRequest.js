@@ -9,31 +9,14 @@ name: Behavior.FormRequest
 */
 
 Behavior.addGlobalFilter('FormRequest', {
-	//deprecated options
-	deprecated: {
-		'update': 'update',
-		'update-by-id': 'update-by-id',
-		'update-by-selector': 'update-by-selector',
-		'filter': 'update-filter'
-	},
 	defaults: {
 		resetForm: true
 	},
 	setup: function(element, api){
 		var updateElement,
 		    update = api.get('update');
-		if (update == "parent") {
-			updateElement = element.getParent();
-		} else if (update =="self") {
+		if (update =="self") {
 			updateElement = element;
-		//these are deprecated
-		// <jframe.compat>
-			} else if (api.get('update-by-id')){
-				updateElement = document.id(api.get('update-by-id'));
-			} else if (api.get('update-by-selector')){
-				updateElement = document.id(api.getContentElement()).getElement(api.get('update-by-selector'));
-		// end deprecated
-		// </jframe.compat>
 		} else {
 			updateElement = element.getElement(update);
 		}

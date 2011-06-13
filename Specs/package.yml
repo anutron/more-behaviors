@@ -16,3 +16,7 @@ sources:
   - "more-behaviors/Interface/Behavior.HtmlTable.js"
   - "more-behaviors/Drag/Behavior.Resizable.js"
   - "more-behaviors/Drag/Behavior.Sortable.js"
+  - "more-behaviors/Delegators/Delegator.AddRemoveClass.js"
+  - "more-behaviors/Delegators/Delegator.Ajax.js"
+  - "more-behaviors/Delegators/Delegator.CheckAllOrNone.js"
+  - "more-behaviors/Delegators/Delegator.SubmitLink.js"

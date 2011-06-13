@@ -29,15 +29,4 @@ provides: [Behavior.FormRequest.Tests]
 		specs: false
 	});
 
-
-	var deprecated = 
-	'<form data-behavior="FormRequest" data-update-by-selector=".formRequestTest"></form>\
-	 <div class="formRequestTest"></div>';
-	Behavior.addFilterTest({
-		filterName: 'FormRequest',
-		desc: 'Creates an instance of FormRequest (by selector) (deprecated)',
-		content: deprecated,
-		returns: Form.Request
-	});
-
 })();
