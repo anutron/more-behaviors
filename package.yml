@@ -10,6 +10,8 @@ copyright: "&copy; [Aaron Newton](http://clientcide.com)"
 
 authors: "[Aaron Newton](http://clientcide.com)"
 
+version: "1.0.1"
+
 sources:
   - "Source/Fx/Behavior.FxAccordion.js"
   - "Source/Forms/Behavior.FormRequest.js"
