@@ -45,6 +45,7 @@ Behavior.addGlobalFilter('FormValidator', {
 					})
 				)
 			);
+			element.store('validator');
 		}
 		//if the api provides a getScroller method, which should return an instance of
 		//Fx.Scroll, use it instead
