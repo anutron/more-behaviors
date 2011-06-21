@@ -3,8 +3,8 @@
 description: Creates instances of Sortable for sortable lists, optionally updating an input or element with the sort state.
 provides: [Behavior.Sortable]
 requires: [Behavior/Behavior, More/Sortables, More/Scroller]
-script: Behavior.HtmlTable.js
-name: Behavior.HtmlTable
+script: Behavior.Sortable.js
+name: Behavior.Sortable
 ...
 */
 (function(){
