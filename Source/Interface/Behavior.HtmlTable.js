@@ -2,7 +2,7 @@
 ---
 description: Creates instances of HtmlTable for tables with the HtmlTable filter
 provides: [Behavior.HtmlTable]
-requires: [Behavior/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/HtmlTable.Tree, More/HtmlTable.Resize, More/Object.Extras]
+requires: [Behavior/Behavior, More/HtmlTable.Sort, More/HtmlTable.Zebra, More/HtmlTable.Select, More/Object.Extras]
 script: Behavior.HtmlTable.js
 name: Behavior.HtmlTable
 ...
@@ -64,15 +64,11 @@ Behavior.addGlobalFilter('HtmlTable', {
 				parsers: api.getAs(Array, 'parsers'),
 				sortOnStartup: api.getAs(Boolean, 'sortOnStartup'),
 				sortIndex: api.getAs(Number, 'firstSort'),
-				sortable: api.getAs(Boolean, 'sortable', /* deprecated default: */ element.hasClass('sortable') && !element.hasClass('treeview')),
+				sortable: api.getAs(Boolean, 'sortable', /* deprecated default: */ element.hasClass('sortable')),
 				classNoSort: api.get('noSort'),
 				selectable: api.getAs(Boolean, 'selectable', /* deprecated default: */ element.hasClass('selectable') || multiselectable),
 				allowMultiSelect: multiselectable,
-				useKeyboard: api.getAs(Boolean, 'useKeybaord', /* deprecated default: */ !element.hasClass('noKeyboard')),
-				enableTree: api.getAs(Boolean, 'enableTree', /* deprecated default: */ element.hasClass('treeView')),
-				resizable: api.getAs(Boolean, 'resizable', /* deprecated default: */ element.hasClass('resizable')),
-				resize: api.getAs(Boolean, 'resize'),
-				build: api.getAs(Boolean, 'build', /* deprecated default: */ element.hasClass('buildTree'))
+				useKeyboard: api.getAs(Boolean, 'useKeybaord', /* deprecated default: */ !element.hasClass('noKeyboard'))
 			})
 		);
 		api.onCleanup(function(){

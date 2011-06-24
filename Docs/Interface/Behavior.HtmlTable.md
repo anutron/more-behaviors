@@ -33,15 +33,11 @@ See also:
 * sortOnStartup - (*boolean*; defaults to `false`) If `true` the table is sorted on startup. This is expensive; use sparingly.
 * sortIndex - (*number*) This is the initial column to sort (if `sortOnStartup` is `true`). The first `th` that does not have the `noSort` class is used unless a `th` is found with the class `defaultSort`. If `sortOnStartup` is false, this is still used to add the classnames and styling to the column as if it were sorted.
 * parsers - (*array*) A mapping of parsers for each column of data. See the parsers defined in [HtmlTable.Sort][].
-* sortable - (*booelan*; defaults to `false`) You can also give the table the css class `sortable` to set this flag to `true`. Note that this should not be used with tables that are trees.
+* sortable - (*booelan*; defaults to `false`) You can also give the table the css class `sortable` to set this flag to `true`.
 * classNoSort - (*string*; defaults to `noSort`) The string given to column headers that are not sortable.
 * selectable - (*boolean*; defaults to `false`) You can also give the table the css class `selectable` or `multiselect` to set this flag to `true`.
 * allowMultiSelect - (*boolean*; defaults to `false`) You can also give the table the css class `multiselect` to set this flag to `true`.
 * useKeyboard - (*boolean*; defaults to `true`) Enables keyboard controls (up/down). You can also give the table the css class `noKeyboard` to disable this flag.
-* enableTree - (*boolean*; defaults to `false`) Configures this table to be a tree-view instance. You can also give the table the css class `treeView` to set this flag to `true`.
-* build - (*boolean*; defaults to `false`) Builds the tree on startup. This is expensive, use sparingly. It's better to construct the state in the HTML. You can also give the table the css class `buildTree` to set this flag to `true`.
-* resizable - (*boolean*; defaults to `false`) You can also give the table the css class `resizable` to set this flag to `true`.
-* resize - (*string*; defaults to `neighbor`) The resize type to use; choose from `neighbor`, `maintainChanges`, and `table`.
 
 [HtmlTable]: http://mootools.net/docs/more/Interface/HtmlTable
 [HtmlTable.Sort]: http://mootools.net/docs/more/Interface/HtmlTable.Sort

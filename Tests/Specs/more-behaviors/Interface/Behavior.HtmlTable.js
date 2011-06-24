@@ -89,23 +89,23 @@ provides: [Behavior.HtmlTable.Tests]
 		return result;
 	};
 
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable (400 rows / 5 col); resizable',
-		content: header('', {'data-htmltable-options': "'resizable': true"}) + build(str, 400) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			expect(table._resizeEnabled).toBe(true);
-		}
-	});
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable (400 rows / 5 col); resizable',
+	// 	content: header('', {'data-htmltable-options': "'resizable': true"}) + build(str, 400) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		expect(table._resizeEnabled).toBe(true);
+	// 	}
+	// });
 
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable (1000 rows / 5 col); resizable',
-		content: header('', {'data-htmltable-options': "'resizable': true"}) + build(str, 1000) + footer,
-		returns: HtmlTable,
-		specs: false
-	});
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable (1000 rows / 5 col); resizable',
+	// 	content: header('', {'data-htmltable-options': "'resizable': true"}) + build(str, 1000) + footer,
+	// 	returns: HtmlTable,
+	// 	specs: false
+	// });
 
 	Behavior.addFilterTest({
 		filterName: 'HtmlTable',
@@ -144,78 +144,78 @@ provides: [Behavior.HtmlTable.Tests]
 		specs: false
 	});
 
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable',
-		content: header('', {'data-htmltable-options': "'selectable': true, 'allowMultiSelect': true, 'sortable': true, 'resizable': true"}) + build(str, 400) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			table.selectAll();
-			expect(table.getSelected().length).toBe(400);
-			expect(table.sortEnabled).toBe(true);
-			expect(table._resizeEnabled).toBe(true);
-		}
-	});
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable',
+	// 	content: header('', {'data-htmltable-options': "'selectable': true, 'allowMultiSelect': true, 'sortable': true, 'resizable': true"}) + build(str, 400) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		table.selectAll();
+	// 		expect(table.getSelected().length).toBe(400);
+	// 		expect(table.sortEnabled).toBe(true);
+	// 		expect(table._resizeEnabled).toBe(true);
+	// 	}
+	// });
 
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable (1000 rows / 5 col); multiselect sortable resizable',
-		content: header('', {'data-htmltable-options': "'selectable': true, 'allowMultiSelect': true, 'sortable': true, 'resizable': true"}) + build(str, 1000) + footer,
-		returns: HtmlTable,
-		specs: false
-	});
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable (1000 rows / 5 col); multiselect sortable resizable',
+	// 	content: header('', {'data-htmltable-options': "'selectable': true, 'allowMultiSelect': true, 'sortable': true, 'resizable': true"}) + build(str, 1000) + footer,
+	// 	returns: HtmlTable,
+	// 	specs: false
+	// });
 
-	var treeTable = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true">';
-	var treeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
-	var treeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
-
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD',
-		content: treeTable + treeHead + build(treeRows, 20) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			expect(table._treeBuilt).toBe(undefined);
-			var first = element.getElement('tbody tr');
-			table.closeSection(first);
-			expect(table.isExpanded(first)).toBe(false);
-			table.expandSection(first);
-			expect(table.isExpanded(first)).toBe(true);
-			expect(table._treeBuilt).toBe(true);
-		}
-	});
-
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable NO BUILD',
-		content: treeTable + treeHead + build(treeRows, 20) + footer,
-		returns: HtmlTable,
-		specs: false
-	});
-
-	var treeTableBuild = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true, \'build\': true">';
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD',
-		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			var first = element.getElement('tbody tr');
-			table.closeSection(first);
-			expect(table.isExpanded(first)).toBe(false);
-			table.expandSection(first);
-			expect(table.isExpanded(first)).toBe(true);
-			expect(table._treeBuilt).toBe(true);
-		}
-	});
-
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable BUILD',
-		content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
-		returns: HtmlTable,
-		specs: false
-	});
+	// var treeTable = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true">';
+	// var treeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
+	// var treeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
+	// 
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD',
+	// 	content: treeTable + treeHead + build(treeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		expect(table._treeBuilt).toBe(undefined);
+	// 		var first = element.getElement('tbody tr');
+	// 		table.closeSection(first);
+	// 		expect(table.isExpanded(first)).toBe(false);
+	// 		table.expandSection(first);
+	// 		expect(table.isExpanded(first)).toBe(true);
+	// 		expect(table._treeBuilt).toBe(true);
+	// 	}
+	// });
+	// 
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable NO BUILD',
+	// 	content: treeTable + treeHead + build(treeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	specs: false
+	// });
+	// 
+	// var treeTableBuild = '<table id="tree2" data-behavior="HtmlTable" data-htmltable-options="\'selectable\':true, \'enableTree\': true, \'multiselect\': true, \'build\': true">';
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD',
+	// 	content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		var first = element.getElement('tbody tr');
+	// 		table.closeSection(first);
+	// 		expect(table.isExpanded(first)).toBe(false);
+	// 		table.expandSection(first);
+	// 		expect(table.isExpanded(first)).toBe(true);
+	// 		expect(table._treeBuilt).toBe(true);
+	// 	}
+	// });
+	// 
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (600 rows / 3 col); tree selectable BUILD',
+	// 	content: treeTableBuild + treeHead + build(treeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	specs: false
+	// });
 
 
 	//deprecated html tests
@@ -251,53 +251,53 @@ provides: [Behavior.HtmlTable.Tests]
 		}
 	});
 
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable (deprecated)',
-		content: header('multiselect sortable resizable') + build(str, 400) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			table.selectAll();
-			expect(table.getSelected().length).toBe(400);
-			expect(table.sortEnabled).toBe(true);
-			expect(table._resizeEnabled).toBe(true);
-		}
-	});
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable (400 rows / 5 col); multiselect sortable resizable (deprecated)',
+	// 	content: header('multiselect sortable resizable') + build(str, 400) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		table.selectAll();
+	// 		expect(table.getSelected().length).toBe(400);
+	// 		expect(table.sortEnabled).toBe(true);
+	// 		expect(table._resizeEnabled).toBe(true);
+	// 	}
+	// });
 
-	var deprecatedTreeTable = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect">';
-	var deprecatedTreeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
-	var deprecatedTreeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
-
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD (deprecated)',
-		content: deprecatedTreeTable + deprecatedTreeHead + build(deprecatedTreeRows, 20) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			expect(table._treeBuilt).toBe(undefined);
-			var first = element.getElement('tbody tr');
-			table.closeSection(first);
-			expect(table.isExpanded(first)).toBe(false);
-			table.expandSection(first);
-			expect(table.isExpanded(first)).toBe(true);
-			expect(table._treeBuilt).toBe(true);
-		}
-	});
-
-	var deprecatedTreeTableBuild = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect buildTree">';
-	Behavior.addFilterTest({
-		filterName: 'HtmlTable',
-		desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD (deprecated)',
-		content: deprecatedTreeTableBuild + deprecatedTreeHead + build(deprecatedTreeRows, 20) + footer,
-		returns: HtmlTable,
-		expects: function(element, table){
-			var first = element.getElement('tbody tr');
-			table.closeSection(first);
-			expect(table.isExpanded(first)).toBe(false);
-			table.expandSection(first);
-			expect(table.isExpanded(first)).toBe(true);
-			expect(table._treeBuilt).toBe(true);
-		}
-	});
+	// var deprecatedTreeTable = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect">';
+	// var deprecatedTreeHead = '<thead><th>Name</th><th>Date Modified</th><th>Size</th></thead><tbody>';
+	// var deprecatedTreeRows = function(){ return '<tr class="table-folder table-depth-0" id="docs2"><td><a class="expand"></a>Documents</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>Resume.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-1"><td>notes.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-1"><td><a class="expand"></a>Receipts</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>starbucks.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>safeway.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>movies.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Taxes</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2008 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2009 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>2010 Taxes.pdf</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-folder table-depth-2"><td><a class="expand"></a>Pictures</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-3"><td>Baby.jpg</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="hidden table-depth-2"><td>Bar.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr><tr class="table-depth-0"><td>Foo.txt</td><td>Jul 10, 2010 1:39pm</td><td>--</td></tr>'; };
+	// 
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable NO BUILD (deprecated)',
+	// 	content: deprecatedTreeTable + deprecatedTreeHead + build(deprecatedTreeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		expect(table._treeBuilt).toBe(undefined);
+	// 		var first = element.getElement('tbody tr');
+	// 		table.closeSection(first);
+	// 		expect(table.isExpanded(first)).toBe(false);
+	// 		table.expandSection(first);
+	// 		expect(table.isExpanded(first)).toBe(true);
+	// 		expect(table._treeBuilt).toBe(true);
+	// 	}
+	// });
+	// 
+	// var deprecatedTreeTableBuild = '<table id="tree2" data-behavior="HtmlTable" class="selectable treeView multiselect buildTree">';
+	// Behavior.addFilterTest({
+	// 	filterName: 'HtmlTable',
+	// 	desc: 'HtmlTable: Treeview (300 rows / 3 col); tree selectable BUILD (deprecated)',
+	// 	content: deprecatedTreeTableBuild + deprecatedTreeHead + build(deprecatedTreeRows, 20) + footer,
+	// 	returns: HtmlTable,
+	// 	expects: function(element, table){
+	// 		var first = element.getElement('tbody tr');
+	// 		table.closeSection(first);
+	// 		expect(table.isExpanded(first)).toBe(false);
+	// 		table.expandSection(first);
+	// 		expect(table.isExpanded(first)).toBe(true);
+	// 		expect(table._treeBuilt).toBe(true);
+	// 	}
+	// });
 
 })();
