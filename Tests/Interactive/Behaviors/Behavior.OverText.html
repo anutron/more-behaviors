@@ -17,7 +17,7 @@
 				var b = new Behavior().apply(document.body);
 
 				(function(){
-					b.show();
+					b.fireEvent('layout:display');
 				}).delay(10);
 
 				$('detach').addEvent('click', function(){

@@ -27,7 +27,9 @@ Creates an instance of [Fx.Accorion][] for an element using the `Accordion` data
 * show  - (*number*) The index of the element to be shown initially.
 * trigger - (*string*; defaults to 'click') The event that triggers a change in element display.
 * orientation - (*string*; defaults to `vertical`) Either `vertical` or `horizontal` - determines whether or not the accordion transitions height or width. Horizontal accordions require CSS mastery to pull off, so be wary.
-* fade - (*boolean*; defaults to `true`) If set to `true`, an opacity transition effect will take place when switching between displayed elements.
+* opacity - (*boolean*; defaults to `true`) If set to `true`, an opacity transition effect will take place when switching between displayed elements.
+* height      - (*boolean*: defaults to true) If set to true, a height transition effect will take place when switching between displayed elements.
+* width       - (*boolean*: defaults to false) If set to true, it will add a width transition to the accordion when switching between displayed elements. Warning: CSS mastery is required to make this work!
 * fixedHeight - (*number*) If set, displayed elements will have a fixed height equal to the specified value.
 * fixedWidth - (*number*) If set, displayed elements will have a fixed width equal to the specified value.
 * alwaysHide - (*boolean*; defaults to `false`) If set to `true`, it will be possible to close all displayable elements. Otherwise, one will remain open at all time.

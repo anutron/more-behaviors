@@ -27,27 +27,22 @@ Behavior.addGlobalFilter('Accordion', {
 		sections: '.section'
 	},
 	setup: function(element, api){
-		var accordion = new Fx.Accordion(element.getElements(api.get('headers')), element.getElements(api.get('sections')),
-			Object.cleanValues(
-				Object.merge(api.getAs({
-					fixedHeight: Number,
-					fixedWidth: Number,
-					display: Number,
-					show: Number,
-					height: Boolean,
-					width: Boolean,
-					opacity: Boolean,
-					alwaysHide: Boolean,
-					trigger: String,
-					initialDisplayFx: Boolean,
-					resetHeight: Boolean
-				}), {
-					opacity: api.getAs(Boolean, 'fade'),
-					height: api.get('orientation') == 'vertical',
-					width: api.get('orientation') == 'horizontal'
-				})
-			)
+		var options = Object.cleanValues(
+			api.getAs({
+				fixedHeight: Number,
+				fixedWidth: Number,
+				display: Number,
+				show: Number,
+				height: Boolean,
+				width: Boolean,
+				opacity: Boolean,
+				alwaysHide: Boolean,
+				trigger: String,
+				initialDisplayFx: Boolean,
+				resetHeight: Boolean
+			})
 		);
+		var accordion = new Fx.Accordion(element.getElements(api.get('headers')), element.getElements(api.get('sections')), options);
 		api.onCleanup(accordion.detach.bind(accordion));
 		return accordion;
 	}
