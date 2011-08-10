@@ -17,7 +17,7 @@
 
       <p>Click either submit button to update the box below. The whole page should be submitted and when it reloads the box should display which link button or link you clicked.</p>
 
-      <form action="?project=More-Behaviors&path=/Delegators/Delegator.SubmitLink.Ajax.mako" method="post" style="margin: 6px 0px 0px;" data-formrequest-options="'update':'!body #update', 'filter':'#update'" data-filters="FormRequest">
+      <form action="?project=More-Behaviors&path=/Delegators/Delegator.SubmitLink.Ajax.mako" method="post" style="margin: 6px 0px 0px;" data-formrequest-options="'update':'!body #update', 'filter':'#update'" data-behavior="FormRequest">
         <input type="hidden" name="sleep" value="1"/>
         <input type="submit" name="button" value="fetch html (button 1)"/>
         <input type="submit" name="button" value="fetch html (button 2)"/>
@@ -30,8 +30,10 @@
       </div>
 
       <script>
-      new Delegator().attach(document.body);
-      new Behavior().apply(document.body);
+      var b = new Behavior().apply(document.body);
+      new Delegator({
+        getBehavior: function(){ return b; }
+      }).attach(document.body);
       </script>
 
     </body>
