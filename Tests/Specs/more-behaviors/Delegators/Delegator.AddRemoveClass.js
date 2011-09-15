@@ -28,7 +28,7 @@ provides: [Delegator.ToggleClass.Tests]
 	    toggleParent = dom.getElement('a#toggleParent'),
 	    toggleSelf = dom.getElement('a#toggleSelf');
 
-	describe('Delegator.ToggleClass', function(){
+	describe('Delegator.AddRemoveClass', function(){
 		it('should toggle the class on a target', function(){
 			expect(dom.hasClass('bar')).toBe(false);
 			del.trigger('toggleClass', toggleParent, 'click');

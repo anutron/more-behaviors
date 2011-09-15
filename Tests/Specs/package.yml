@@ -19,4 +19,5 @@ sources:
   - "more-behaviors/Delegators/Delegator.AddRemoveClass.js"
   - "more-behaviors/Delegators/Delegator.Ajax.js"
   - "more-behaviors/Delegators/Delegator.CheckAllOrNone.js"
+  - "more-behaviors/Delegators/Delegator.FxReveal.js"
   - "more-behaviors/Delegators/Delegator.SubmitLink.js"

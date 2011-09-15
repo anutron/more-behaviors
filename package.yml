@@ -23,4 +23,5 @@ sources:
   - "Source/Delegators/Delegator.AddRemoveClass.js"
   - "Source/Delegators/Delegator.Ajax.js"
   - "Source/Delegators/Delegator.CheckAllOrNone.js"
+  - "Source/Delegators/Delegator.FxReveal.js"
   - "Source/Delegators/Delegator.SubmitLink.js"
