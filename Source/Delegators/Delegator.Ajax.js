@@ -55,23 +55,23 @@ name: Delegator.Ajax
 							case 'replace':
 								var container = target.getParent();
 								elements.reverse().injectAfter(target);
-								this.fireEvent('destroyDom', target);
+								api.fireEvent('destroyDom', target);
 								target.destroy();
-								this.fireEvent('ammendDom', [container, elements]);
+								api.fireEvent('ammendDom', [container, elements]);
 								break;
 							case 'update':
-								this.fireEvent('destroyDom', target.getChildren());
+								api.fireEvent('destroyDom', target.getChildren());
 								target.empty();
 								elements.inject(target);
-								this.fireEvent('ammendDom', [target, elements]);
+								api.fireEvent('ammendDom', [target, elements]);
 								break;
 							default:
 								//injectTop, injectBottom, injectBefore, injectAfter
 								if (action == "injectTop" || action == "injectAfter") elements.reverse();
 								elements[action](target);
-								this.fireEvent('ammendDom', [target, elements]);
+								api.fireEvent('ammendDom', [target, elements]);
 						}
-					}.bind(this)
+					}
 				})
 			).send();
 		}
