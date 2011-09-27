@@ -27,6 +27,7 @@ name: Delegator.FxReveal
 				target.get('reveal');
 				if (action == 'toggleReveal') target.get('reveal').toggle();
 				else target[action]();
+				event.preventDefault();
 			}
 		};
 
