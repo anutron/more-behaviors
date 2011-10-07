@@ -11,9 +11,11 @@ Behavior.addGlobalFilter('OverText', function(element, api){
 
 	//create the overtext instance
 	var ot = new OverText(element);
-	element.get('class').split(' ').each(function(cls) {
-		if (cls) ot.text.addClass('overText-'+cls);
-	});
+	if (element.get('class')) {
+		element.get('class').split(' ').each(function(cls) {
+			if (cls) ot.text.addClass('overText-'+cls);
+		});
+	}
 	element.getBehaviors().each(function(filter){
 		if (filter != "OverText") ot.text.addClass('overText-'+filter);
 	});
@@ -30,6 +32,7 @@ Behavior.addGlobalFilter('OverText', function(element, api){
 		api.removeEvent('layout:display', updater);
 		ot.destroy();
 	});
+
 	return ot;
 
 });
