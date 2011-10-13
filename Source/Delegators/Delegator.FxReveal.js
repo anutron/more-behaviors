@@ -1,7 +1,7 @@
 /*
 ---
 description: Provides methods to reveal, dissolve, nix, and toggle using Fx.Reveal.
-provides: [Delegator.Reveal, Delegator.ToggleReveal, Delegator.Dissolve, Delegator.Nix]
+provides: [Delegator.FxReveal, Delegator.Reveal, Delegator.ToggleReveal, Delegator.Dissolve, Delegator.Nix]
 requires: [Behavior/Delegator, More/Fx.Reveal]
 script: Delegator.FxReveal.js
 name: Delegator.FxReveal

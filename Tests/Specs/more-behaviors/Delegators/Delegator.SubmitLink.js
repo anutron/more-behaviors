@@ -2,7 +2,7 @@
 ---
 name: Delegator.SubmitLink Tests
 description: n/a
-requires: [More-Behaviors/Delegator.SubmitLink, More/Form.Request]
+requires: [More-Behaviors/Delegator.SubmitLink, More/Form.Request, Core/JSON]
 provides: [Delegator.SubmitLink.Tests]
 ...
 */
@@ -26,7 +26,7 @@ provides: [Delegator.SubmitLink.Tests]
 			del.trigger('submitLink', link, 'click');
 			waits(500);
 			runs(function(){
-				expect(div.get('html')).toBe('{"post_response": {"foo": "bar", "one": "1"}, "get_response": {}}');
+				expect(JSON.decode(div.get('html'))).toEqual({"post_response": {"foo": "bar", "one": "1"}, "get_response": {}});
 			});
 		});
 	});
