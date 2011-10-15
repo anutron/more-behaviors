@@ -9,7 +9,7 @@ provides: [Delegator.Ajax.Tests]
 
 
 (function(){
-	
+
 	var getDom = function(filter, wrap){
 		var container = new Element('div[id=container]');
 		var wrapper = new Element('div[id=wrapper]').inject(container);
@@ -41,14 +41,14 @@ provides: [Delegator.Ajax.Tests]
 		describe('Delegator.Ajax (' + action + ')', function(){
 			it('Should load in ajax: ' + action, function(){
 				del.trigger('Ajax', link, 'click');
-				waits(200);
+				waits(400);
 				runs(function(){
 					expect(dom.getElement('#wrapper').get('html')).toBe(results[action]);
 				});
 			});
 		});
 	});
-	
+
 	['injectBottom', 'injectTop', 'replace', 'update', 'injectAfter', 'injectBefore'].each(function(action){
 		var dom = getDom(action);
 		var del = new Delegator().attach(dom),
@@ -57,12 +57,12 @@ provides: [Delegator.Ajax.Tests]
 			it('Should load in ajax with a filter: ' + action, function(){
 				link.setData('ajax-filter', 'p');
 				del.trigger('Ajax', link, 'click');
-				waits(200);
+				waits(400);
 				runs(function(){
 					expect(dom.getElement('#wrapper').get('html')).toBe(results[action]);
 				});
 			});
 		});
 	});
-	
+
 })();
