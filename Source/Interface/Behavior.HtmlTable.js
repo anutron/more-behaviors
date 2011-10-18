@@ -58,7 +58,7 @@ Behavior.addGlobalFilter('HtmlTable', {
 			if (th.hasClass('defaultSort')) firstSort = i;
 		});
 		api.setDefault('firstSort', firstSort);
-		var multiselectable = api.getAs(Boolean, 'multiselect', element.hasClass('multiselect'));
+		var multiselectable = api.getAs(Boolean, 'multiselect', element.hasClass('multiselect')) || api.getAs(Boolean, 'allowMultiSelect');
 		var table = new HtmlTable(element,
 			Object.cleanValues({
 				parsers: api.getAs(Array, 'parsers'),
@@ -102,6 +102,6 @@ HtmlTable.defineParsers({
 		convert: function() {
 			return this.getElement('[data-sort-string]').getData('sort-string');
 		},
-		number: false 
+		number: false
 	}
 });

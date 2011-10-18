@@ -9,7 +9,7 @@ provides: [Behavior.Sortable.Tests]
 
 (function(){
 
-	var str = 
+	var str =
 	'<ul id="SortableExample" data-behavior="Sortable" data-sortable-state="#order">\
 		<li id="1">First <input type="radio" name="foo" checked="true"/></li>\
 		<li id="2">Second <input type="radio" name="foo"/></li>\
@@ -19,8 +19,8 @@ provides: [Behavior.Sortable.Tests]
 		<li id="6">Sixth <input type="radio" name="foo"/></li>\
 		<li id="7">Seventh <input type="radio" name="foo"/></li>\
 		<li id="8">Eigth <input type="radio" name="foo"/></li>\
-		<li id="9">Nineth <input type="radio" name="foo"/></li<li id="10">\
-		Tenth <input type="radio" name="foo"/></li>\
+		<li id="9">Nineth <input type="radio" name="foo"/></li>\
+		<li id="10">Tenth <input type="radio" name="foo"/></li>\
 	</ul>\
 	<div id="order"></div>';
 	Behavior.addFilterTest({
@@ -28,7 +28,7 @@ provides: [Behavior.Sortable.Tests]
 		desc: 'Creates an instance of Sortables',
 		content: str,
 		returns: Sortables,
-		expects: function(element, instance){
+		expect: function(element, instance){
 			instance.fireEvent('complete');
 			expect(element.getParent().getElement('#order').get('html')).toBe('1,2,3,4,5,6,7,8,9,10');
 		}
@@ -41,8 +41,8 @@ provides: [Behavior.Sortable.Tests]
 		specs: false,
 		returns: Sortables
 	});
-	
-	var multi = 
+
+	var multi =
 	'<div data-behavior="Sortable" class="example2" data-sortable-lists="ul" data-sortable-state=".order2">\
 		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">\
 			<li id="1" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">First</li>\
@@ -78,7 +78,7 @@ provides: [Behavior.Sortable.Tests]
 
 // deprecated html syntax; spec here to ensure it's still supported
 
-	var dep_str = 
+	var dep_str =
 	'<ul id="SortableExample" data-behavior="Sortable" data-sort-state="#order">\
 		<li id="1">First <input type="radio" name="foo" checked="true"/></li>\
 		<li id="2">Second <input type="radio" name="foo"/></li>\
@@ -88,8 +88,8 @@ provides: [Behavior.Sortable.Tests]
 		<li id="6">Sixth <input type="radio" name="foo"/></li>\
 		<li id="7">Seventh <input type="radio" name="foo"/></li>\
 		<li id="8">Eigth <input type="radio" name="foo"/></li>\
-		<li id="9">Nineth <input type="radio" name="foo"/></li<li id="10">\
-		Tenth <input type="radio" name="foo"/></li>\
+		<li id="9">Nineth <input type="radio" name="foo"/></li>\
+		<li id="10">Tenth <input type="radio" name="foo"/></li>\
 	</ul>\
 	<div id="order"></div>';
 	Behavior.addFilterTest({
@@ -98,13 +98,13 @@ provides: [Behavior.Sortable.Tests]
 		content: dep_str,
 		returns: Sortables,
 		benchmarks: false,
-		expects: function(element, instance){
+		expect: function(element, instance){
 			instance.fireEvent('complete');
-			expect(element.getParent().getElement('#order').get('html')).toBe('1,2,3,4,5,6,7,8,9,10');
+			expect(element.getParent().getElement('#order').get('html')).toEqual('1,2,3,4,5,6,7,8,9,10');
 		}
 	});
 
-	var dep_multi = 
+	var dep_multi =
 	'<div data-behavior="Sortable" class="example2" data-sort-lists="ul" data-sort-state=".order2">\
 		<ul style="float: left; width: 20%; min-height: 60px; border: 1px solid #999; margin-right: 8px;">\
 			<li id="1" style="margin: 2px !important; padding: 2px !important; background: #ccc !important; cursor: pointer;">First</li>\

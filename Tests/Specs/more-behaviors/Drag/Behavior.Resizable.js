@@ -10,7 +10,7 @@ provides: [Behavior.Resizable.Tests]
 (function(){
 
 
-	var str = 
+	var str =
 	'<div data-behavior="Resizable" data-resizable-handle="#textresizer" data-resizable-child="textarea" data-resizable-modifiers="{\'x\': false}">\
 		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
 		<div id="textresizer"></div>\
@@ -20,7 +20,7 @@ provides: [Behavior.Resizable.Tests]
 		desc: 'Creates an instance of Resizable',
 		content: str,
 		returns: Drag,
-		expects: function(element, instance){
+		expect: function(element, instance){
 			expect(instance.options.handle.id).toBe('textresizer');
 		}
 	});
@@ -35,7 +35,7 @@ provides: [Behavior.Resizable.Tests]
 
 // deprecated html syntax; spec here to ensure it's still supported
 
-	var deprecated = 
+	var deprecated =
 	'<div data-behavior="Resizable" data-resize-handle="#textresizer" data-resize-child="textarea" data-resize-modifiers="{\'x\': false}">\
 		<textarea tabindex="4" id="comment" class="resizable" rows="15" cols="50" name="comment"></textarea>\
 		<div id="textresizer"></div>\
@@ -46,7 +46,7 @@ provides: [Behavior.Resizable.Tests]
 		content: deprecated,
 		returns: Drag,
 		benchmarks: false,
-		expects: function(element, instance){
+		expect: function(element, instance){
 			expect(instance.options.handle.id).toBe('textresizer');
 		}
 	});

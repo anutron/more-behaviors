@@ -43,7 +43,7 @@ provides: [Delegator.Ajax.Tests]
 				del.trigger('Ajax', link, 'click');
 				waits(400);
 				runs(function(){
-					expect(dom.getElement('#wrapper').get('html')).toBe(results[action]);
+					expect(dom.getElement('#wrapper').get('html')).toBe(new Element('div', {html: results[action]}).get('html'));
 				});
 			});
 		});
@@ -59,7 +59,7 @@ provides: [Delegator.Ajax.Tests]
 				del.trigger('Ajax', link, 'click');
 				waits(400);
 				runs(function(){
-					expect(dom.getElement('#wrapper').get('html')).toBe(results[action]);
+					expect(dom.getElement('#wrapper').get('html')).toBe(new Element('div', {html: results[action]}).get('html'));
 				});
 			});
 		});
