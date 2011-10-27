@@ -17,9 +17,13 @@ name: Delegator.FxReveal
 		triggers[action] = {
 			handler: function(event, link, api){
 				var target = link;
-				if (api.get('target')) {
+				if (api.get('target')){
 					target = link.getElement(api.get('target'));
 					if (!target) api.fail('could not locate target element to ' + action, link);
+				}
+				if (api.get('targets')){
+					target = link.getElements(api.get('targets'));
+					if (!target.length) api.fail('could not locate target elements to ' + action, link);
 				}
 
 				var fxOptions = api.get('fxOptions');
