@@ -23,13 +23,14 @@ Behavior.addGlobalFilter('FormRequest', {
 
 		if (!updateElement) api.fail('Could not find target element for form update');
 
-		//pass null for the update element argument; JFrame does our updating for us
 		var req = new Form.Request(element, updateElement, {
 			requestOptions: {
 				filter: api.get('filter'),
 				spinnerTarget: updateElement
 			},
 			resetForm: api.get('resetForm') || /* noReset is deprecated: */ !element.hasClass('noReset')
+		}).addEvent('complete', function(){
+			api.applyFilters(updateElement);
 		});
 		api.onCleanup(req.detach.bind(req));
 		return req;
