@@ -26,3 +26,4 @@ The above examples use `Fx.Reveal` to show, hide, and destroy their respective t
 * target - (*string*) - a selector which will return the DOM element to show/hide. Use selectors provided by [Slick](https://github.com/mootools/slick) to select parents and sibling trees.
 * targets - (*string*) - same as `target` except this will apply the effect to multiple targets (all the ones that match the selector).
 * fxOptions - (*object*; optional) - a set of options to be passed to `Fx.Reveal`.
+* allowEvent - (*boolean*) if `true` the trigger does not call `event.preventDefault()` - defaults to `false`.

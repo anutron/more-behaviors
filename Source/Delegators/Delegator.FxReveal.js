@@ -16,22 +16,23 @@ name: Delegator.FxReveal
 
 		triggers[action] = {
 			handler: function(event, link, api){
-				var target = link;
+				var targets;
 				if (api.get('target')){
-					target = link.getElement(api.get('target'));
-					if (!target) api.fail('could not locate target element to ' + action, link);
-				}
-				if (api.get('targets')){
-					target = link.getElements(api.get('targets'));
-					if (!target.length) api.fail('could not locate target elements to ' + action, link);
+					targets = new Elements(link.getElement(api.get('target')));
+					if (!targets) api.fail('could not locate target element to ' + action, link);
+				} else if (api.get('targets')){
+					targets = link.getElements(api.get('targets'));
+					if (!targets.length) api.fail('could not locate target elements to ' + action, link);
+				} else {
+					targets = new Elements(link);
 				}
 
 				var fxOptions = api.get('fxOptions');
-				if (fxOptions) target.set('reveal', fxOptions);
-				target.get('reveal');
-				if (action == 'toggleReveal') target.get('reveal').toggle();
-				else target[action]();
-				event.preventDefault();
+				if (fxOptions) targets.set('reveal', fxOptions);
+				targets.get('reveal');
+				if (action == 'toggleReveal') targets.get('reveal').invoke('toggle');
+				else targets[action]();
+				if (!api.getAsBoolean('allowEvent')) event.preventDefault();
 			}
 		};
 
