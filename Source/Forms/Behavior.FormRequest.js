@@ -14,19 +14,21 @@ Behavior.addGlobalFilter('FormRequest', {
 	},
 	setup: function(element, api){
 		var updateElement,
-		    update = api.get('update');
-		if (update =="self") {
-			updateElement = element;
-		} else {
-			updateElement = element.getElement(update);
-		}
+		    update = api.get('update'),
+		    spinner = api.get('spinner');
+		if (update =="self") updateElement = element;
+		else updateElement = element.getElement(update);
+
+		if (spinner == "self") spinner = element;
+		else if (spinner) spinner = element.getElement(spinner);
+		else spinner = updateElement;
 
 		if (!updateElement) api.fail('Could not find target element for form update');
 
 		var req = new Form.Request(element, updateElement, {
 			requestOptions: {
 				filter: api.get('filter'),
-				spinnerTarget: updateElement
+				spinnerTarget: spinner
 			},
 			resetForm: api.get('resetForm') || /* noReset is deprecated: */ !element.hasClass('noReset')
 		}).addEvent('complete', function(){
