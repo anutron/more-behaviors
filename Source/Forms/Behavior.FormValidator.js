@@ -27,7 +27,7 @@ Behavior.addGlobalFilter('FormValidator', {
 		//instantiate the form validator
 		var validator = element.retrieve('validator');
 		if (!validator) {
-			validator = new Form.Validator.Inline(element, 
+			validator = new Form.Validator.Inline(element,
 				Object.cleanValues(
 					api.getAs({
 						useTitles: Boolean,
@@ -56,6 +56,9 @@ Behavior.addGlobalFilter('FormValidator', {
 				scrollToErrorsOnSubmit: false
 			});
 		}
+		api.onCleanup(function(){
+			validator.disable();
+		});
 		return validator;
 	}
 
