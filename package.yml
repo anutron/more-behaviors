@@ -24,4 +24,5 @@ sources:
   - "Source/Delegators/Delegator.Ajax.js"
   - "Source/Delegators/Delegator.CheckAllOrNone.js"
   - "Source/Delegators/Delegator.FxReveal.js"
+  - "Source/Delegators/Delegator.SetProperty.js"
   - "Source/Delegators/Delegator.SubmitLink.js"
