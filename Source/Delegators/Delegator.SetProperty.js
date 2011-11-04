@@ -19,9 +19,9 @@ name: Delegator.SetProperty
 				var target = link;
 				if (api.get('target') && api.get('target') != 'self') {
 					target = link.getElement(api.get('target'));
-					if (!target) api.fail('could not locate target element to ' + action + ' its class', link);
+					if (!target) api.fail('could not locate target element to ' + action + ' its property', link);
 				}
-				if (action == 'set' || (action == 'toggle' && target.get(api.get('property')) != api.get('value'))){
+				if (action == 'set' || (action == 'toggle' && target.get(api.get('property')) !== null && target.get(api.get('property')).toString() != api.get('value'))){
 					if (api.get('value') === null) api.fail('Could not retrieve eraseproperty-value option from element.');
 					target.set(api.get('property'), api.get('value'));
 				} else {
