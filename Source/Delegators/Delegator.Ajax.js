@@ -2,7 +2,7 @@
 ---
 description: Provides functionality for links that load content into a target element via ajax.
 provides: [Delegator.Ajax]
-requires: [Behavior/Delegator, Core/Request.HTML, More/Spinner]
+requires: [Behavior/Delegator, Core/Request.HTML, More/Spinner, More/Object.Extras]
 script: Delegator.Ajax.js
 name: Delegator.Ajax
 ...
