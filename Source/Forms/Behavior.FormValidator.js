@@ -57,7 +57,7 @@ Behavior.addGlobalFilter('FormValidator', {
 			});
 		}
 		api.onCleanup(function(){
-			validator.disable();
+			validator.stop();
 		});
 		return validator;
 	}
