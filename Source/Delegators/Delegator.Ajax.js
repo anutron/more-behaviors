@@ -21,7 +21,7 @@ name: Delegator.Ajax
 				selector = api.get('target');
 			if (selector) {
 				if (selector == "self") {
-					target = element;
+					target = link;
 				} else {
 					target = link.getElement(selector);
 				}
