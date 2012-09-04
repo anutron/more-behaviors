@@ -21,6 +21,7 @@ The above example will load the response from the links HREF (`get/list/item.php
 
 * target - (*string*; required) - a selector which will return the DOM element to update. Use selectors provided by [Slick](https://github.com/mootools/slick) to select parents and sibling trees.
 * action - (*string*; optional) - the action to take on the target. Any of the options described below.
+* method - (*string*; optional) - the HTML verb to use; defaults to `get`.
 * filter - (*string*; optional) - a selector to run against the response whose response will be used to update the DOM instead of the full response.
 
 ### Actions

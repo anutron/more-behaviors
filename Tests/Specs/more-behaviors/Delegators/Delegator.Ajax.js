@@ -40,6 +40,9 @@ provides: [Delegator.Ajax.Tests]
 		    link = dom.getElement('a');
 		describe('Delegator.Ajax (' + action + ')', function(){
 			it('Should load in ajax: ' + action, function(){
+				del.addEvent('trigger', function(trigger, element, event, result){
+					expect(result.method).toBe('get');
+				});
 				del.trigger('Ajax', link, 'click');
 				waits(400);
 				runs(function(){
@@ -61,6 +64,33 @@ provides: [Delegator.Ajax.Tests]
 				runs(function(){
 					expect(dom.getElement('#wrapper').get('html')).toBe(new Element('div', {html: results[action]}).get('html'));
 				});
+			});
+		});
+	});
+
+	// test method option
+	var dom = getDom('update');
+	var del = new Delegator().attach(dom),
+	    link = dom.getElement('a');
+	describe('Delegator.Ajax (update) using POST', function(){
+		it('Should load in ajax: update', function(){
+			link.setJSONData('ajax-options', {
+				'action': 'update',
+				'target': '!#container #target',
+				'method': 'post',
+				'useSpinner': false
+			});
+
+
+			var api = new BehaviorAPI(link, 'ajax');
+			api.setDefault('method', 'post');
+			del.addEvent('trigger', function(trigger, element, event, result){
+				expect(result.method).toBe('post');
+			});
+			del.trigger('Ajax', link, 'click');
+			waits(400);
+			runs(function(){
+				expect(dom.getElement('#wrapper').get('html')).toBe(new Element('div', {html: results['update']}).get('html'));
 			});
 		});
 	});

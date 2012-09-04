@@ -11,7 +11,8 @@ name: Delegator.Ajax
 Delegator.register('click', 'Ajax', {
 	require: ['target'],
 	defaults: {
-		action: 'injectBottom'
+		action: 'injectBottom',
+		method: 'get'
 	},
 	handler: function(event, link, api){
 		var target,
@@ -35,7 +36,7 @@ Delegator.register('click', 'Ajax', {
 		event.preventDefault();
 		new Request.HTML(
 			Object.cleanValues({
-				method: 'get',
+				method: api.get('method'),
 				evalScripts: api.get('evalScripts'),
 				url: api.get('href') || link.get('href'),
 				spinnerTarget: spinnerTarget || target,
