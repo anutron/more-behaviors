@@ -24,17 +24,40 @@ Behavior.addGlobalFilter('FormRequest', {
 		else spinner = updateElement;
 
 		if (!updateElement) api.fail('Could not find target element for form update');
-
+		var sentAt;
 		var req = new Form.Request(element, updateElement, {
 			requestOptions: {
 				filter: api.get('filter'),
 				spinnerTarget: spinner
 			},
-			resetForm: api.get('resetForm') || /* noReset is deprecated: */ !element.hasClass('noReset')
+			resetForm: api.get('resetForm')
 		}).addEvent('complete', function(){
 			api.applyFilters(updateElement);
+		}).addEvent('send', function(){
+			sentAt = new Date().getTime();
 		});
-		api.onCleanup(req.detach.bind(req));
+		// this bit below is to throttle form submission in case more than one thing
+		// is trying to send it
+
+		// remove form.request submit watcher
+		element.removeEvent('submit', req.onSubmit);
+		// our new submit handler checks that requests to submit are at least 200ms apart
+		var submit = function(e){
+			if (!sentAt || sentAt + 200 < new Date().getTime()) {
+				req.onSubmit(e);
+			} else {
+				// if they aren't, just stop the submit event if it's present
+				if (e) e.stop();
+			}
+		};
+		// now monitor submit with our new method
+		element.addEvent('submit', submit);
+		// and overwrite the submit method on the element
+		element.submit = submit;
+		api.onCleanup(function(){
+			req.detach();
+			delete element.submit;
+		});
 		return req;
 	}
 
