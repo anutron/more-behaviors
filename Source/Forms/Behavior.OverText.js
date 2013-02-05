@@ -10,7 +10,9 @@ name: Behavior.OverText
 Behavior.addGlobalFilter('OverText', function(element, api){
 
 	//create the overtext instance
-	var ot = new OverText(element);
+	var ot = new OverText(element, {
+		textOverride: api.get('textOverride')
+	});
 	if (element.get('class')) {
 		element.get('class').split(' ').each(function(cls) {
 			if (cls) ot.text.addClass('overText-'+cls);
