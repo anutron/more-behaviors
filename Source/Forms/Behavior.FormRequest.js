@@ -10,7 +10,7 @@ name: Behavior.FormRequest
 
 Behavior.addGlobalFilter('FormRequest', {
 	defaults: {
-		resetForm: true
+		resetform: true
 	},
 	setup: function(element, api){
 		var updateElement,
@@ -30,7 +30,7 @@ Behavior.addGlobalFilter('FormRequest', {
 				filter: api.get('filter'),
 				spinnerTarget: spinner
 			},
-			resetForm: api.get('resetForm')
+			resetform: api.get('resetform')
 		}).addEvent('complete', function(){
 			api.applyFilters(updateElement);
 		}).addEvent('send', function(){
