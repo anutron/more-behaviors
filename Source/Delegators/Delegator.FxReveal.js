@@ -27,9 +27,12 @@ name: Delegator.FxReveal
 					targets = new Elements([link]);
 				}
 
-				var fxOptions = api.get('fxOptions');
-				if (fxOptions) targets.set('reveal', fxOptions);
-				targets.get('reveal');
+				var fxOptions = api.getAs(Object, 'fxOptions');
+				if (fxOptions){
+					targets.each(function(target){
+						target.get('reveal').setOptions(fxOptions);
+					});
+				}
 				if (action == 'toggleReveal') targets.get('reveal').invoke('toggle');
 				else targets[action]();
 				if (!api.getAs(Boolean, 'allowEvent')) event.preventDefault();
