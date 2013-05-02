@@ -23,6 +23,7 @@ The above example will load the response from the links HREF (`get/list/item.php
 * action - (*string*; optional) - the action to take on the target. Any of the options described below.
 * method - (*string*; optional) - the HTML verb to use; defaults to `get`.
 * filter - (*string*; optional) - a selector to run against the response whose response will be used to update the DOM instead of the full response.
+* loadOnce - (*boolean*; optional) - if `true`, the link will only load content into its target once. Subsequent clicks are ignored (a console warning is displayed).
 
 ### Actions
 

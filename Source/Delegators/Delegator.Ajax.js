@@ -15,6 +15,10 @@ Delegator.register('click', 'Ajax', {
 		method: 'get'
 	},
 	handler: function(event, link, api){
+		if (api.getAs(Boolean, 'loadOnce') === true && link.retrieve('ajaxLoaded')){
+			api.warn('already loaded link via ajax. `once` option is true, so exiting quietly.');
+			return;
+		}
 		var target,
 			action = api.get('action'),
 			selector = api.get('target');
@@ -73,5 +77,6 @@ Delegator.register('click', 'Ajax', {
 				}
 			})
 		).send();
+		link.store('ajaxLoaded', true);
 	}
 });
