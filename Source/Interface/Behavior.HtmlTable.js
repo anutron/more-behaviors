@@ -65,6 +65,7 @@ Behavior.addGlobalFilter('HtmlTable', {
 				sortOnStartup: api.getAs(Boolean, 'sortOnStartup'),
 				sortIndex: api.getAs(Number, 'firstSort'),
 				sortable: api.getAs(Boolean, 'sortable', /* deprecated default: */ element.hasClass('sortable')),
+				sortReverse: api.getAs(Boolean, 'sortReverse'),
 				classNoSort: api.get('noSort'),
 				selectable: api.getAs(Boolean, 'selectable', /* deprecated default: */ element.hasClass('selectable') || multiselectable),
 				allowMultiSelect: multiselectable,

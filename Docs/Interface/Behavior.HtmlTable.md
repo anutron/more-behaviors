@@ -32,6 +32,7 @@ See also:
 
 * sortOnStartup - (*boolean*; defaults to `false`) If `true` the table is sorted on startup. This is expensive; use sparingly.
 * sortIndex - (*number*) This is the initial column to sort (if `sortOnStartup` is `true`). The first `th` that does not have the `noSort` class is used unless a `th` is found with the class `defaultSort`. If `sortOnStartup` is false, this is still used to add the classnames and styling to the column as if it were sorted.
+* sortReverse - (*boolean*) if `true`, sorts the column reverse on startup (if `sortOnStartup` is `true`).
 * parsers - (*array*) A mapping of parsers for each column of data. See the parsers defined in [HtmlTable.Sort][].
 * sortable - (*booelan*; defaults to `false`) You can also give the table the css class `sortable` to set this flag to `true`.
 * classNoSort - (*string*; defaults to `noSort`) The string given to column headers that are not sortable.
