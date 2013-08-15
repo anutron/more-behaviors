@@ -7,14 +7,8 @@ script: Delegator.Ajax.js
 name: Delegator.Ajax
 ...
 */
-
-Delegator.register('click', 'Ajax', {
-	require: ['target'],
-	defaults: {
-		action: 'injectBottom',
-		method: 'get'
-	},
-	handler: function(event, link, api){
+(function(){
+	var send = function(event, link, api){
 		if (api.getAs(Boolean, 'loadOnce') === true && link.retrieve('ajaxLoaded')){
 			api.warn('already loaded link via ajax. `once` option is true, so exiting quietly.');
 			return;
@@ -38,7 +32,8 @@ Delegator.register('click', 'Ajax', {
 		if (spinnerTarget) spinnerTarget = link.getElement(spinnerTarget);
 
 		event.preventDefault();
-		new Request.HTML(
+
+		var request = new Request.HTML(
 			Object.cleanValues({
 				method: api.get('method'),
 				evalScripts: api.get('evalScripts'),
@@ -76,7 +71,50 @@ Delegator.register('click', 'Ajax', {
 					}
 				}
 			})
-		).send();
+		);
+		// allow for additional data to be encoded into the request at the time of invocation
+		var data;
+		// if the encode option is set
+		if (api.get('encode')){
+			// go get the element to encode; allow 'self' or a selector
+			var encode = api.get('encode') == 'self' ? link : link.getElement(api.get('encode'));
+			// if one was found, encode it!
+			if (encode){
+				data = {};
+				// if the reference is a single input, just capture its value
+				if (encode.get('tag') == 'input') data[encode.get('name')] = encode.get('value');
+				// else encode the element's children as a query string
+				else data = encode.toQueryString();
+			} else {
+				api.warn("Warning: Ajax delegator could not find encode target " + api.get('encode'));
+			}
+		}
+		if (data) request.send({data: data});
+		else request.send();
 		link.store('ajaxLoaded', true);
-	}
-});
+	};
+
+	Delegator.register('click', 'Ajax', {
+		require: ['target'],
+		defaults: {
+			action: 'injectBottom',
+			method: 'get',
+			throttle: 0 //prevents sending repeatedly within this threshold
+		},
+		handler: function(event, link, api){
+			// if the throttle is set and != 0
+			if (api.get('throttle')){
+				// store the timer on the element for subsequent requests
+				var timer = link.retrieve('ajaxTimer');
+				// clear the previous running timer if there is one
+				if (timer) clearTimeout(timer);
+				// store the new one; delaying the send call by the configured amount
+				link.store('ajaxTimer', send.delay(api.get('throttle'), this, arguments));
+			} else {
+				// otherwise hey, no throttle. send it.
+				send.apply(this, arguments);
+			}
+		}
+	});
+
+})();
