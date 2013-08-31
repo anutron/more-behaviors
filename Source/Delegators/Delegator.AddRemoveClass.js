@@ -18,10 +18,10 @@ name: Delegator.AddRemoveClass
 			require: ['class'],
 			handler: function(event, link, api){
 				var target = link;
-				if (api.get('target')) {
-					target = link.getElement(api.get('target'));
-					if (!target) api.fail('could not locate target element to ' + action + ' its class', link);
-				}
+
+				if (api.get('target')) target = api.getElements('target')
+				else if (api.get('targets')) target = api.getElements('targets');
+
 				target[action + 'Class'](api.get('class'));
 			}
 		};

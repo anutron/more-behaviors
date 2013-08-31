@@ -20,6 +20,7 @@ Toggles a Class on a specified element.
 ### Options
 
 * target - (*string*; optional) A selector for the element you wish to toggle the class. If not specified will change the class on the element itself.
+* targets - (*string*; optional) A selector that returns multiple elements you wish to alter. Ignored if `target` is set.
 * class - (*string*; **required**) The class you wish to toggle.
 
 Delegator Trigger: addClass
@@ -39,6 +40,7 @@ Adds a Class to a specified element.
 ### Options
 
 * target - (*string*; optional) A selector for the element you to which to add the class. If not specified will change the class on the element itself.
+* targets - (*string*; optional) A selector that returns multiple elements you wish to alter. Ignored if `target` is set.
 * class - (*string*; **required**) The class you wish to add.
 
 Delegator Trigger: removeClass
@@ -58,4 +60,5 @@ Removes a Class from a specified element.
 ### Options
 
 * target - (*string*; optional) A selector for the element you from which to remove the class. If not specified will change the class on the element itself.
+* targets - (*string*; optional) A selector that returns multiple elements you wish to alter. Ignored if `target` is set.
 * class - (*string*; **required**) The class you wish to remove.
