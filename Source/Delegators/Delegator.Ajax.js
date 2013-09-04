@@ -56,7 +56,7 @@ name: Delegator.Ajax
 					switch(action){
 						case 'replace':
 							var container = target.getParent();
-							elements.reverse().injectAfter(target);
+							elements.reverse().inject(target , 'after');
 							api.fireEvent('destroyDom', target);
 							target.destroy();
 							api.fireEvent('ammendDom', [container, elements]);
@@ -69,8 +69,9 @@ name: Delegator.Ajax
 							break;
 						default:
 							//injectTop, injectBottom, injectBefore, injectAfter
-							if (action == "injectTop" || action == "injectAfter") elements.reverse();
-							elements[action](target);
+							var where = action.replace('inject', '').toLowerCase();
+							if (where == 'top' || where == 'after') elements.reverse();
+							elements.inject(target, where);
 							api.fireEvent('ammendDom', [target, elements]);
 					}
 				}
