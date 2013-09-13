@@ -28,7 +28,7 @@ name: Delegator.Ajax
 
 		var requestTarget = new Element('div');
 
-		var spinnerTarget = api.get('spinner-target');
+		var spinnerTarget = api.get('spinnerTarget') || api.get('spinner-target'); //spinner-target is deprecated
 		if (spinnerTarget) spinnerTarget = link.getElement(spinnerTarget);
 
 		event.preventDefault();

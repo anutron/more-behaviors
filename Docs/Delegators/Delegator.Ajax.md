@@ -26,6 +26,10 @@ The above example will load the response from the links HREF (`get/list/item.php
 * loadOnce - (*boolean*; optional) - if `true`, the link will only load content into its target once. Subsequent clicks are ignored (a console warning is displayed).
 * throttle - (*number*; optional) - delays the ajax request and kills it if a subsequent request is made within this time frame (in ms). Defaults to 0 (i.e. no throttle).
 * encode - (*string*; optional) - the selector to find an element to URL encode with the request at the time of invocation. Specify a selector to an input and only that input is sent. Any other DOM element encodes all of its children to send. Allows for the special selector "self" which encodes the element with the trigger on it.
+* useSpinner - (*boolean*; optional) - if `true` uses an instance of the MooTools More Spinner class on the target.
+* spinnerTarget - (*string*; optionals) - selector to find an alternate target for the spinner than the ajax update target.
+* evalScripts - (*boolean*; optional) - if `true` evaluates scrips in the response.
+* href - (*string*; optional) - specifies the url to fetch; defaults to the `href` property on the element.
 
 ### Actions
 
