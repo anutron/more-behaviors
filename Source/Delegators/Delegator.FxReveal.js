@@ -18,11 +18,9 @@ name: Delegator.FxReveal
 			handler: function(event, link, api){
 				var targets;
 				if (api.get('target')){
-					targets = new Elements([link.getElement(api.get('target'))]);
-					if (!targets) api.fail('could not locate target element to ' + action, link);
+					targets = new Elements([api.getElement('target')]);
 				} else if (api.get('targets')){
-					targets = link.getElements(api.get('targets'));
-					if (!targets.length) api.fail('could not locate target elements to ' + action, link);
+					targets = api.getElements('targets');
 				} else {
 					targets = new Elements([link]);
 				}
