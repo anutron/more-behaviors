@@ -1,9 +1,11 @@
-Delegator Triggers: checkAll, checkNone
+Delegator Triggers: checkAll, checkNone, checkToggleAll
 =======================
 
 Provides click event delegators for selecting or deselecting a group of checkboxes.
 
-### Example
+### checkAll, checkNone
+
+#### Example
 
 	<div class="chex">
 		<a data-trigger="checkAll" data-checkall-options ="'targets': '!div.chex input'">checkAll</a>
@@ -16,9 +18,49 @@ Provides click event delegators for selecting or deselecting a group of checkbox
 		<input type="checkbox"/>
 	</div>
 
-### Options
+#### Options
 
 * targets - (*string*; **required**) a selector that will return the inputs to check/uncheck.
+
+### checkToggle
+
+#### Example
+	<div class="chex">
+		<label>
+			<input type="checkbox" data-trigger="checkToggleAll" data-checktoggleall-options= "
+				'targets': '!div.chex input',
+				'classTarget': '!label',
+				'class': 'red'
+			" />
+			Here's a label
+		</label>
+		<label>
+			<input type="checkbox"/>
+			Here's a label
+		</label>
+		<label>
+			<input type="checkbox"/>
+			Here's a label
+		</label>
+		<label>
+			<input type="checkbox"/>
+			Here's a label
+		</label>
+		<label>
+			<input type="checkbox"/>
+			Here's a label
+		</label>
+		<label>
+			<input type="checkbox"/>
+			Here's a label
+		</label>
+	</div>
+
+#### Options
+
+* targets - (*string*; **required**) a selector that will return the inputs to check/uncheck.
+* class - (*string*; **optional**) a class to apply to the targets' classTarget.
+* classTarget - (*string*; **optional**) a selector relative to the targets to apply *class* to.
 
 ### See Also
 
