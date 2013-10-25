@@ -31,8 +31,6 @@ name: Delegator.Ajax
 		var spinnerTarget = api.get('spinnerTarget') || api.get('spinner-target'); //spinner-target is deprecated
 		if (spinnerTarget) spinnerTarget = link.getElement(spinnerTarget);
 
-		event.preventDefault();
-
 		var request = new Request.HTML(
 			Object.cleanValues({
 				method: api.get('method'),
@@ -102,6 +100,7 @@ name: Delegator.Ajax
 			throttle: 0 //prevents sending repeatedly within this threshold
 		},
 		handler: function(event, link, api){
+			event.preventDefault();
 			// if the throttle is set and != 0
 			if (api.get('throttle')){
 				// store the timer on the element for subsequent requests
@@ -109,7 +108,7 @@ name: Delegator.Ajax
 				// clear the previous running timer if there is one
 				if (timer) clearTimeout(timer);
 				// store the new one; delaying the send call by the configured amount
-				link.store('ajaxTimer', send.delay(api.get('throttle'), this, arguments));
+				link.store('ajaxTimer', send.delay(api.getAs(Number, 'throttle'), this, arguments));
 			} else {
 				// otherwise hey, no throttle. send it.
 				send.apply(this, arguments);
