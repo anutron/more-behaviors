@@ -33,7 +33,6 @@ name: Delegator.Ajax
 
 		var request = link.retrieve('Delegator.Ajax.Request');
 		if (!request){
-			console.log('creating request instance');
 			request = new Request.HTML(
 				Object.cleanValues({
 					method: api.get('method'),
@@ -73,7 +72,6 @@ name: Delegator.Ajax
 					}
 				})
 			);
-			console.log('request: ', request);
 			link.store('Delegator.Ajax.Request', request);
 		}
 		// allow for additional data to be encoded into the request at the time of invocation
