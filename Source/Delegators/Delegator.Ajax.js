@@ -31,45 +31,51 @@ name: Delegator.Ajax
 		var spinnerTarget = api.get('spinnerTarget') || api.get('spinner-target'); //spinner-target is deprecated
 		if (spinnerTarget) spinnerTarget = link.getElement(spinnerTarget);
 
-		var request = new Request.HTML(
-			Object.cleanValues({
-				method: api.get('method'),
-				evalScripts: api.get('evalScripts'),
-				url: api.get('href') || link.get('href'),
-				spinnerTarget: spinnerTarget || target,
-				useSpinner: api.getAs(Boolean, 'useSpinner'),
-				update: requestTarget,
-				onSuccess: function(){
-					//reverse the elements and inject them
-					//reversal is required since it injects each after the target
-					//pushing down the previously added element
-					var elements = requestTarget.getChildren();
-					if (api.get('filter')){
-						elements = new Element('div').adopt(elements).getElements(api.get('filter'));
+		var request = link.retrieve('Delegator.Ajax.Request');
+		if (!request){
+			console.log('creating request instance');
+			request = new Request.HTML(
+				Object.cleanValues({
+					method: api.get('method'),
+					evalScripts: api.get('evalScripts'),
+					url: api.get('href') || link.get('href'),
+					spinnerTarget: spinnerTarget || target,
+					useSpinner: api.getAs(Boolean, 'useSpinner'),
+					update: requestTarget,
+					onSuccess: function(){
+						//reverse the elements and inject them
+						//reversal is required since it injects each after the target
+						//pushing down the previously added element
+						var elements = requestTarget.getChildren();
+						if (api.get('filter')){
+							elements = new Element('div').adopt(elements).getElements(api.get('filter'));
+						}
+						switch(action){
+							case 'replace':
+								var container = target.getParent();
+								elements.reverse().injectAfter(target);
+								api.fireEvent('destroyDom', target);
+								target.destroy();
+								api.fireEvent('ammendDom', [container, elements]);
+								break;
+							case 'update':
+								api.fireEvent('destroyDom', target.getChildren());
+								target.empty();
+								elements.inject(target);
+								api.fireEvent('ammendDom', [target, elements]);
+								break;
+							default:
+								//injectTop, injectBottom, injectBefore, injectAfter
+								if (action == "injectTop" || action == "injectAfter") elements.reverse();
+								elements[action](target);
+								api.fireEvent('ammendDom', [target, elements]);
+						}
 					}
-					switch(action){
-						case 'replace':
-							var container = target.getParent();
-							elements.reverse().injectAfter(target);
-							api.fireEvent('destroyDom', target);
-							target.destroy();
-							api.fireEvent('ammendDom', [container, elements]);
-							break;
-						case 'update':
-							api.fireEvent('destroyDom', target.getChildren());
-							target.empty();
-							elements.inject(target);
-							api.fireEvent('ammendDom', [target, elements]);
-							break;
-						default:
-							//injectTop, injectBottom, injectBefore, injectAfter
-							if (action == "injectTop" || action == "injectAfter") elements.reverse();
-							elements[action](target);
-							api.fireEvent('ammendDom', [target, elements]);
-					}
-				}
-			})
-		);
+				})
+			);
+			console.log('request: ', request);
+			link.store('Delegator.Ajax.Request', request);
+		}
 		// allow for additional data to be encoded into the request at the time of invocation
 		var data;
 		// if the encode option is set
