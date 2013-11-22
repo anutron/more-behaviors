@@ -19,7 +19,7 @@ name: Delegator.AddRemoveClass
 			handler: function(event, link, api){
 				var target = link;
 
-				if (api.get('target')) target = api.getElements('target')
+				if (api.get('target')) target = api.getElement('target')
 				else if (api.get('targets')) target = api.getElements('targets');
 
 				target[action + 'Class'](api.get('class'));
