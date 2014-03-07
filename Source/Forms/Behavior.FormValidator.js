@@ -50,10 +50,10 @@ Behavior.addGlobalFilter('FormValidator', {
 		//Fx.Scroll, use it instead
 		if (api.getScroller) {
 			validator.setOptions({
-				onShow: function(input, advice, className) {
-					api.getScroller().toElement(input);
-				},
 				scrollToErrorsOnSubmit: false
+			});
+			validator.addEvent('showAdvice', function(input, advice, className) {
+				api.getScroller().toElement(input, ['y']);
 			});
 		}
 		api.onCleanup(function(){
