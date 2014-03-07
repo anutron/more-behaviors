@@ -10,7 +10,7 @@ name: Delegator.Ajax
 (function(){
 	var send = function(event, link, api){
 		if (api.getAs(Boolean, 'loadOnce') === true && link.retrieve('ajaxLoaded')){
-			api.warn('already loaded link via ajax. `once` option is true, so exiting quietly.');
+			api.warn('already loaded link via ajax. `once` option is true, so exiting quietly.', api.get('href') || link.get('href'));
 			return;
 		}
 		var target,
@@ -54,6 +54,8 @@ name: Delegator.Ajax
 						elements = new Element('div').adopt(elements).getElements(api.get('filter'));
 					}
 					switch(action){
+						case 'ignore':
+							break;
 						case 'replace':
 							var container = target.getParent();
 							elements.reverse().inject(target , 'after');
@@ -100,7 +102,7 @@ name: Delegator.Ajax
 		link.store('ajaxLoaded', true);
 	};
 
-	Delegator.register('click', 'Ajax', {
+	Delegator.register('click', 'ajax', {
 		require: ['target'],
 		defaults: {
 			action: 'injectBottom',
@@ -123,5 +125,9 @@ name: Delegator.Ajax
 			}
 		}
 	});
+
+	// legacy
+
+	Delegator.cloneTrigger('ajax', 'Ajax');
 
 })();

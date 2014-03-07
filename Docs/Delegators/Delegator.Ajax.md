@@ -1,4 +1,4 @@
-Delegator Trigger: Ajax
+Delegator Trigger: ajax
 =======================
 
 Loads the response of a link's URL into a specified target.
@@ -6,7 +6,7 @@ Loads the response of a link's URL into a specified target.
 ### Example
 
 	<a href="/get/list/item.php"
-		data-trigger="Ajax"
+		data-trigger="ajax"
 		data-ajax-options="
 			'action': 'injectBottom',
 			'target': '!body ul'
@@ -39,6 +39,7 @@ The above example will load the response from the links HREF (`get/list/item.php
 * `injectBottom` - inserts the response at the bottom of the target after any of it's other children.
 * `injectBefore` - inserts the response before the target.
 * `injectAfter` - inserts the response after the target.
+* `ignore` - response is discarded.
 
 ### Notes
 
