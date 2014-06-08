@@ -18,8 +18,6 @@ sources:
   - "Source/Forms/Behavior.FormValidator.js"
   - "Source/Forms/Behavior.OverText.js"
   - "Source/Interface/Behavior.HtmlTable.js"
-  - "Source/Drag/Behavior.Resizable.js"
-  - "Source/Drag/Behavior.Sortable.js"
   - "Source/Delegators/Delegator.AddRemoveClass.js"
   - "Source/Delegators/Delegator.Ajax.js"
   - "Source/Delegators/Delegator.CheckAllOrNone.js"
